@@ -8,3 +8,6 @@
 
 - Webhook github hook
 `scp webhook.json ara-web-server:/home/aravinth/webhook/webhook.json`
+
+- Apache sites
+`scp dreamspace.academy.conf ara-web-server:/etc/apache2/sites-available/`
