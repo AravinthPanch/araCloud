@@ -1,0 +1,13 @@
+[{
+  "id" : "deploy",
+  "execute-command" : "/home/aravinth/dreamspace.academy/deploy.sh",
+  "pass-arguments-to-command" :
+      [ {"source" : "payload", "name" : "repository.name"} ],
+  "trigger-rule" : {
+    "match" : {
+      "type" : "value",
+      "value" : "refs/heads/master",
+      "parameter" : {"source" : "payload", "name" : "ref"}
+    }
+  }
+}]
