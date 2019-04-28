@@ -32,3 +32,12 @@ Webhook Supervisor service
 
 Webhook github hook
 - `scp webhook.json ara-web-server:/home/aravinth/webhook/webhook.json`
+
+
+## Apache2 Webserver
+
+Check enabled websites
+- `a2query -s`
+
+Disable a website
+- `sudo a2dissite apache-abc-com.conf`
