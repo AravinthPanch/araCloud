@@ -8,7 +8,6 @@ Create basic folders
 - `sudo chown -R $USER:$USER abc.com/html`
 - `sudo chown -R $USER:$USER abc.com`
 - `cd ~/`
-- `mkdir abc.com`
 - `ln -s /var/www/abc.com`
 - `cd ~/abc.com`
 - `git clone git@github.com:AravinthPanch/abc.com.git repo`
