@@ -13,7 +13,7 @@ Create basic folders
 - `git clone git@github.com:AravinthPanch/abc.com.git repo`
 
 Create deploy-abc-com.sh and apache-abc-com.conf on host machine and scp to the remote server
-- `scp deploy-abc-com.sh apache-abc-com.conf ara-web-server:/home/aravinth/abc.com/`
+- `scp deploy-abc-com.sh apache-abc-com.conf araCloud:/home/aravinth/abc.com/`
 
 Setup apache webserver on the remote
 - `cd ~/abc.com/`
@@ -27,10 +27,10 @@ Setup apache webserver on the remote
 ## Webhook
 
 Webhook Supervisor service
-- `scp webhook.conf ara-web-server:/etc/supervisor/conf.d/`
+- `scp webhook.conf araCloud:/etc/supervisor/conf.d/`
 
 Webhook github hook
-- `scp webhook.json ara-web-server:/home/aravinth/webhook/webhook.json`
+- `scp webhook.json araCloud:/home/aravinth/webhook/webhook.json`
 
 
 ## Apache2 Webserver
