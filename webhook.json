@@ -1,13 +1,73 @@
 [{
-  "id" : "deploy",
-  "execute-command" : "/home/aravinth/dreamspace.academy/deploy.sh",
-  "pass-arguments-to-command" :
-      [ {"source" : "payload", "name" : "repository.name"} ],
-  "trigger-rule" : {
-    "match" : {
-      "type" : "value",
-      "value" : "refs/heads/master",
-      "parameter" : {"source" : "payload", "name" : "ref"}
+    "id": "dreamspace.academy",
+    "execute-command": "/home/aravinth/dreamspace.academy/deploy-dreamspace-academy.sh",
+    "pass-arguments-to-command": [{
+      "source": "payload",
+      "name": "repository.name"
+    }],
+    "trigger-rule": {
+      "match": {
+        "type": "value",
+        "value": "refs/heads/master",
+        "parameter": {
+          "source": "payload",
+          "name": "ref"
+        }
+      }
+    }
+  },
+  {
+    "id": "aravinth.info",
+    "execute-command": "/home/aravinth/aravinth.info/deploy-aravinth-info.sh",
+    "pass-arguments-to-command": [{
+      "source": "payload",
+      "name": "repository.name"
+    }],
+    "trigger-rule": {
+      "match": {
+        "type": "value",
+        "value": "refs/heads/master",
+        "parameter": {
+          "source": "payload",
+          "name": "ref"
+        }
+      }
+    }
+  },
+  {
+    "id": "hardwarestartups.berlin",
+    "execute-command": "/home/aravinth/aravinth.info/deploy-hardwarestartups-berlin.sh",
+    "pass-arguments-to-command": [{
+      "source": "payload",
+      "name": "repository.name"
+    }],
+    "trigger-rule": {
+      "match": {
+        "type": "value",
+        "value": "refs/heads/master",
+        "parameter": {
+          "source": "payload",
+          "name": "ref"
+        }
+      }
+    }
+  },
+  {
+    "id": "macsxperts.com",
+    "execute-command": "/home/aravinth/aravinth.info/deploy-macsxperts-com.sh",
+    "pass-arguments-to-command": [{
+      "source": "payload",
+      "name": "repository.name"
+    }],
+    "trigger-rule": {
+      "match": {
+        "type": "value",
+        "value": "refs/heads/master",
+        "parameter": {
+          "source": "payload",
+          "name": "ref"
+        }
+      }
     }
   }
-}]
+]
