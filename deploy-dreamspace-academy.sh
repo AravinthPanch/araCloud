@@ -10,3 +10,6 @@ rm -rf /home/aravinth/dreamspace.academy/html
 mkdir /home/aravinth/dreamspace.academy/html
 echo "Creating new html" >> /home/aravinth/dreamspace.academy/deploy.log
 cp -rf /home/aravinth/dreamspace.academy/repo/* /home/aravinth/dreamspace.academy/html/
+
+echo "Deploy dev"
+bash /home/aravinth/dev.dreamspace.academy/deploy-dev-dreamspace-academy.sh
