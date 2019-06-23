@@ -18,7 +18,7 @@
   },
   {
     "id": "dreamspace.academy",
-    "execute-command": "/home/aravinth/dreamspace.academy/deploy-dev-dreamspace-academy.sh",
+    "execute-command": "/home/aravinth/dev.dreamspace.academy/deploy-dev-dreamspace-academy.sh",
     "pass-arguments-to-command": [{
       "source": "payload",
       "name": "repository.name"
