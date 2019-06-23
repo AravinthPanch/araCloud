@@ -17,6 +17,24 @@
     }
   },
   {
+    "id": "dreamspace.academy",
+    "execute-command": "/home/aravinth/dreamspace.academy/deploy-dev-dreamspace-academy.sh",
+    "pass-arguments-to-command": [{
+      "source": "payload",
+      "name": "repository.name"
+    }],
+    "trigger-rule": {
+      "match": {
+        "type": "value",
+        "value": "refs/heads/dev",
+        "parameter": {
+          "source": "payload",
+          "name": "ref"
+        }
+      }
+    }
+  },
+  {
     "id": "aravinth.info",
     "execute-command": "/home/aravinth/aravinth.info/deploy-aravinth-info.sh",
     "pass-arguments-to-command": [{
