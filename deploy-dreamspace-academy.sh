@@ -4,7 +4,7 @@
 
 echo "Executing deploy.sh" >> /home/aravinth/dreamspace.academy/deploy.log
 echo "Pulling repo" >> /home/aravinth/dreamspace.academy/deploy.log
-cd /home/aravinth/dreamspace.academy/repo/ && git pull
+cd /home/aravinth/dreamspace.academy/repo/ && git checkout master && git pull
 echo "Removing old html" >> /home/aravinth/dreamspace.academy/deploy.log
 rm -rf /home/aravinth/dreamspace.academy/html
 mkdir /home/aravinth/dreamspace.academy/html
