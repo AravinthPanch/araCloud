@@ -1,4 +1,22 @@
 [{
+    "id": "aracreate.com",
+    "execute-command": "/home/aravinth/aracreate.com/deploy-aracreate-com.sh",
+    "pass-arguments-to-command": [{
+      "source": "payload",
+      "name": "repository.name"
+    }],
+    "trigger-rule": {
+      "match": {
+        "type": "value",
+        "value": "refs/heads/master",
+        "parameter": {
+          "source": "payload",
+          "name": "ref"
+        }
+      }
+    }
+  },
+  {
     "id": "dreamspace.academy",
     "execute-command": "/home/aravinth/dreamspace.academy/deploy-dreamspace-academy.sh",
     "pass-arguments-to-command": [{
