@@ -12,4 +12,4 @@ echo "Creating new html" >> /home/aravinth/aracreate.com/deploy.log
 cp -rf /home/aravinth/aracreate.com/repo/* /home/aravinth/aracreate.com/html/
 
 echo "Deploy dev"
-bash /home/aravinth/dev.aracreate.com/deploy-dev-dreamspace-com.sh
+bash /home/aravinth/dev.aracreate.com/deploy-dev-aracreate-com.sh
