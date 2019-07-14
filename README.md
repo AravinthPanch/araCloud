@@ -1,5 +1,16 @@
 # araCloud
 
+## Setup Local
+- `brew install node`
+- `npm install -g flightplan`
+- `npm install flightplan`
+
+## Run
+- `fly remote-setup:aracreate.com`
+
+
+
+
 ## Create a new website
 
 Create basic folders

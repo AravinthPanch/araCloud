@@ -1,5 +1,21 @@
+/**
+ * Description:   Automatic creation and deployment of websites on araCloud
+ * Author:        Aravinth Panch
+ */
+
+
+// includes
 var plan = require('flightplan');
 
+// server
+plan.target('araCloud', {
+  host: '138.197.186.147',
+  username: 'root',
+  privateKey: '/Users/aravinth/.ssh/id_rsa',
+  agent: process.env.SSH_AUTH_SOCK
+});
+
+// websites
 plan.target('aracreate.com', {
   host: '138.197.186.147',
   username: 'root',
@@ -13,17 +29,60 @@ plan.target('aracreate.com', {
   git_dir: ''
 });
 
-plan.local('local-deploy', function(local) {
-  transport.log('deploying');
-  transport.hostname();
-  transport.exec('uname');
-  console.log(plan.runtime)
+
+//----------------------------------------------//
+// Setup Remote Server
+//----------------------------------------------//
+
+// create all the necessary folders
+plan.remote('remote-setup-server', function(remote) {
+  remote.hostname();
+
+  // definitions
+  var webhook_dir = '/var/www/webhook';
+
+  //setup webhook
+  remote.rm('-rf ' + webhook_dir);
+  remote.mkdir('-p ' + webhook_dir);
 });
 
-plan.remote('remote-setup', function(remote) {
+// transfer necessary files from local host
+plan.local('remote-setup-server', function(local) {
+  local.hostname();
+
+  // definitions
+  var webhook_dir = '/var/www/webhook';
+  var supervisor_dir = '/etc/supervisor/conf.d';
+
+  var files = ['./webhook.json', './flightplan.js'];
+  local.transfer(files, webhook_dir);
+
+  // transfer supervisor conf for webhook
+  var files = ['./webhook.conf'];
+  local.transfer(files, supervisor_dir);
+});
+
+// start necessary services
+plan.remote('remote-setup-server', function(remote) {
+  remote.hostname();
+
+  // definitions
+
+  //reload webhook
+  remote.exec('supervisorctl reload');
+});
+
+
+//----------------------------------------------//
+// Setup Website
+//----------------------------------------------//
+
+// create website on remote server
+plan.remote('remote-setup-website', function(remote) {
   remote.hostname();
   var $ = remote.runtime;
 
+  // definitions
   var www_root = '/var/www/' + $.domain_name;
   var doc_root = www_root + '/html/';
   var git_repo_root = www_root + '/repo/';
@@ -38,21 +97,6 @@ plan.remote('remote-setup', function(remote) {
   var error_log_str = 'ErrorLog ${APACHE_LOG_DIR}/test.aracreate.com.error.log';
   var custom_log_str = 'CustomLog ${APACHE_LOG_DIR}/test.aracreate.com.access.log combined';
   var virtual_host_end_str = '</VirtualHost>';
-
-  // console.log(www_root)
-  // console.log(doc_root)
-  // console.log(git_repo_root)
-  // console.log(www_user)
-  // console.log(apache2_conf_dir)
-  // console.log(apache2_conf_file)
-  // console.log(virtual_host_str)
-  // console.log(virtual_host_end_str)
-  // console.log(server_admin_str)
-  // console.log(server_name_str)
-  // console.log(server_alias_str)
-  // console.log(document_root_str)
-  // console.log(error_log_str)
-  // console.log(custom_log_str)
 
 
   //setup repo & document root
@@ -77,4 +121,43 @@ plan.remote('remote-setup', function(remote) {
   remote.exec('echo "' + custom_log_str + '" >> ' + apache2_conf_file);
   remote.exec('echo "' + virtual_host_end_str + '" >> ' + apache2_conf_file);
 
+  //enable apache site
+  remote.with('cd ' + apache2_conf_dir, function() {
+    remote.exec('a2ensite ' + $.domain_name + '.conf');
+  });
+  remote.exec('apache2ctl configtest');
+  remote.exec('systemctl reload apache2');
+  remote.exec('systemctl restart apache2');
+
+});
+
+// transfer webhook file from local host
+plan.local('remote-setup-website', function(local) {
+  local.hostname();
+
+  // definitions
+  var webhook_dir = '/var/www/webhook';
+
+  var files = ['./webhook.json'];
+  local.transfer(files, webhook_dir);
+});
+
+// start necessary services
+plan.remote('remote-setup-website', function(remote) {
+  remote.hostname();
+
+  //reload webhook
+  remote.exec('supervisorctl reload');
+});
+
+
+
+
+//----------------------------------------------//
+// deploy Website
+//----------------------------------------------//
+
+// deploy website on remote server
+plan.local('local-deploy-website', function(local) {
+  console.log(plan.runtime)
 });

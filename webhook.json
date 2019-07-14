@@ -20,17 +20,7 @@
     "pass-arguments-to-command": [{
       "source": "payload",
       "name": "repository.name"
-    }],
-    "trigger-rule": {
-      "match": {
-        "type": "value",
-        "value": "refs/heads/master",
-        "parameter": {
-          "source": "payload",
-          "name": "ref"
-        }
-      }
-    }
+    }]
   },
   {
     "id": "hardwarestartups.berlin",
@@ -38,17 +28,7 @@
     "pass-arguments-to-command": [{
       "source": "payload",
       "name": "repository.name"
-    }],
-    "trigger-rule": {
-      "match": {
-        "type": "value",
-        "value": "refs/heads/master",
-        "parameter": {
-          "source": "payload",
-          "name": "ref"
-        }
-      }
-    }
+    }]
   },
   {
     "id": "macsxperts.com",
@@ -56,16 +36,6 @@
     "pass-arguments-to-command": [{
       "source": "payload",
       "name": "repository.name"
-    }],
-    "trigger-rule": {
-      "match": {
-        "type": "value",
-        "value": "refs/heads/master",
-        "parameter": {
-          "source": "payload",
-          "name": "ref"
-        }
-      }
-    }
+    }]
   }
 ]
