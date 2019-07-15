@@ -1,6 +1,6 @@
 [{
     "id": "aracreate.com",
-    "execute-command": "/home/aravinth/aracreate.com/deploy-aracreate-com.sh",
+    "execute-command": "/var/www/webhook/deploy.sh",
     "pass-arguments-to-command": [{
       "source": "payload",
       "name": "repository.name"

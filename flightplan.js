@@ -12,7 +12,9 @@ plan.target('araCloud', {
   host: '138.197.186.147',
   username: 'root',
   privateKey: '/Users/aravinth/.ssh/id_rsa',
-  agent: process.env.SSH_AUTH_SOCK
+  agent: process.env.SSH_AUTH_SOCK,
+
+  webhook_dir: '/var/www/webhook',
 });
 
 // websites
@@ -26,7 +28,7 @@ plan.target('aracreate.com', {
   port_number: 80,
   git_repo: 'git@github.com:AravinthPanch/aracreate.com.git',
   git_branch: 'dev',
-  git_dir: ''
+  git_src_dir: ''
 });
 
 
@@ -37,13 +39,27 @@ plan.target('aracreate.com', {
 // create all the necessary folders
 plan.remote('remote-setup-server', function(remote) {
   remote.hostname();
+  var $ = remote.runtime;
 
   // definitions
-  var webhook_dir = '/var/www/webhook';
+  var webhook_dir = $.webhook_dir;
+  var www_user = $.username + ':' + $.username;
 
   //setup webhook
   remote.rm('-rf ' + webhook_dir);
   remote.mkdir('-p ' + webhook_dir);
+
+  //setup nodejs
+  remote.exec('apt install npm');
+  remote.exec('npm install -g n');
+  remote.exec('n latest');
+
+  //setup flightplan
+  remote.exec('npm install -g flightplan');
+  remote.with('cd ' + webhook_dir, function() {
+    remote.exec('npm install flightplan');
+  });
+
 });
 
 // transfer necessary files from local host
@@ -54,7 +70,7 @@ plan.local('remote-setup-server', function(local) {
   var webhook_dir = '/var/www/webhook';
   var supervisor_dir = '/etc/supervisor/conf.d';
 
-  var files = ['./webhook.json', './flightplan.js'];
+  var files = ['./webhook.json', './flightplan.js', './deploy.sh'];
   local.transfer(files, webhook_dir);
 
   // transfer supervisor conf for webhook
@@ -65,10 +81,19 @@ plan.local('remote-setup-server', function(local) {
 // start necessary services
 plan.remote('remote-setup-server', function(remote) {
   remote.hostname();
+  var $ = remote.runtime;
 
   // definitions
+  var webhook_dir = $.webhook_dir;
+  var www_user = $.username + ':' + $.username;
 
-  //reload webhook
+  // setup files
+  remote.chmod('+x ' + webhook_dir + '/deploy.sh');
+  remote.chown('-R ' + www_user + ' ' + webhook_dir);
+  remote.chown('-R ' + www_user + ' ' + webhook_dir + '*');
+
+
+  // reload webhook
   remote.exec('supervisorctl reload');
 });
 
@@ -86,7 +111,7 @@ plan.remote('remote-setup-website', function(remote) {
   var www_root = '/var/www/' + $.domain_name;
   var doc_root = www_root + '/html/';
   var git_repo_root = www_root + '/repo/';
-  var www_user = 'aravinth:aravinth';
+  var www_user = 'root:root';
   var apache2_conf_dir = '/etc/apache2/sites-available/';
   var apache2_conf_file = '/etc/apache2/sites-available/' + $.domain_name + '.conf';
   var virtual_host_str = '<VirtualHost *:' + $.port_number + '>';
@@ -102,16 +127,17 @@ plan.remote('remote-setup-website', function(remote) {
   //setup repo & document root
   remote.rm('-rf ' + www_root);
   remote.mkdir('-p ' + doc_root);
-  remote.chown('-R ' + www_user + ' ' + doc_root);
+  // remote.chown('-R ' + www_user + ' ' + doc_root);
   remote.git('clone -b ' + $.git_branch + ' ' + $.git_repo + ' ' + git_repo_root);
+  // remote.chown('-R ' + www_user + ' ' + git_repo_root + '*');
   remote.cp('-r ' + git_repo_root + '* ' + doc_root);
-  remote.chown('-R ' + www_user + ' ' + doc_root + '*');
+  // remote.chown('-R ' + www_user + ' ' + doc_root + '*');
 
 
   // create apache2 config
   remote.rm('-f ' + apache2_conf_file);
   remote.touch(apache2_conf_file);
-  remote.chown(www_user + ' ' + apache2_conf_file);
+  // remote.chown(www_user + ' ' + apache2_conf_file);
   remote.exec('echo "' + virtual_host_str + '" >> ' + apache2_conf_file);
   remote.exec('echo "' + server_admin_str + '" >> ' + apache2_conf_file);
   remote.exec('echo "' + server_name_str + '" >> ' + apache2_conf_file);
@@ -159,5 +185,25 @@ plan.remote('remote-setup-website', function(remote) {
 
 // deploy website on remote server
 plan.local('local-deploy-website', function(local) {
-  console.log(plan.runtime)
+  local.hostname();
+
+
+  // definitions
+  var $ = local._context.hosts[0];
+  var www_root = '/var/www/' + $.domain_name;
+  var doc_root = www_root + '/html/';
+  var git_repo_root = www_root + '/repo/';
+  var www_user = 'aravinth:aravinth';
+
+  // pull new changes
+  local.with('cd ' + git_repo_root, function() {
+    local.sudo('git checkout ' + $.git_branch);
+    local.sudo('git pull');
+  });
+
+  // install source files
+  local.sudo('rm -rf ' + doc_root);
+  local.sudo('mkdir -p ' + doc_root);
+  local.sudo('cp -rf ' + git_repo_root + $.git_src_dir + '* ' + doc_root);
+
 });
