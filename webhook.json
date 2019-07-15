@@ -8,7 +8,7 @@
   },
   {
     "id": "dreamspace.academy",
-    "execute-command": "/home/aravinth/dreamspace.academy/deploy-dreamspace-academy.sh",
+    "execute-command": "/var/www/webhook/deploy.sh",
     "pass-arguments-to-command": [{
       "source": "payload",
       "name": "repository.name"
@@ -16,7 +16,7 @@
   },
   {
     "id": "aravinth.info",
-    "execute-command": "/home/aravinth/aravinth.info/deploy-aravinth-info.sh",
+    "execute-command": "/var/www/webhook/deploy.sh",
     "pass-arguments-to-command": [{
       "source": "payload",
       "name": "repository.name"
@@ -24,7 +24,7 @@
   },
   {
     "id": "hardwarestartups.berlin",
-    "execute-command": "/home/aravinth/aravinth.info/deploy-hardwarestartups-berlin.sh",
+    "execute-command": "/var/www/webhook/deploy.sh",
     "pass-arguments-to-command": [{
       "source": "payload",
       "name": "repository.name"
@@ -32,7 +32,7 @@
   },
   {
     "id": "macsxperts.com",
-    "execute-command": "/home/aravinth/aravinth.info/deploy-macsxperts-com.sh",
+    "execute-command": "/var/www/webhook/deploy.sh",
     "pass-arguments-to-command": [{
       "source": "payload",
       "name": "repository.name"

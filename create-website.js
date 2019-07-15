@@ -81,12 +81,12 @@ plan.remote('remote-setup-website', function(remote) {
   var $ = remote.runtime;
 
   // definitions
-  var webhook_dir = $.webhook_dir;
   var www_user = $.username + ':' + $.username;
 
   // setup files
-  remote.chown('-R ' + www_user + ' ' + webhook_dir);
-  remote.chown('-R ' + www_user + ' ' + webhook_dir + '*');
+  remote.chmod('+x ' + $.webhook_dir + 'deploy.sh');
+  remote.chown('-R ' + www_user + ' ' + $.webhook_dir);
+  remote.chown('-R ' + www_user + ' ' + $.webhook_dir + '*');
 
   //reload webhook
   remote.exec('supervisorctl reload');

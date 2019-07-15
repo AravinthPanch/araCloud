@@ -38,6 +38,7 @@ plan.local('remote-setup-server', function(local) {
   // definitions
   var webhook_dir = '/var/www/webhook/';
   var supervisor_dir = '/etc/supervisor/conf.d/';
+  var apache2_conf_dir = '/etc/apache2/sites-available/';
 
   var files = [
     './webhook.json',
@@ -45,13 +46,18 @@ plan.local('remote-setup-server', function(local) {
     './create-server.js',
     './create-website.js',
     './deploy-website.js',
-    './deploy.sh'
+    './deploy.sh',
+    './000-default.conf'
   ];
   local.transfer(files, webhook_dir);
 
   // transfer supervisor conf for webhook
   var files = ['./webhook.conf'];
   local.transfer(files, supervisor_dir);
+
+  // transfer default apache2 web
+  var files = ['./000-default.conf'];
+  local.transfer(files, apache2_conf_dir);
 });
 
 // start necessary services
@@ -67,6 +73,7 @@ plan.remote('remote-setup-server', function(remote) {
   remote.chown('-R ' + www_user + ' ' + $.webhook_dir);
   remote.chown('-R ' + www_user + ' ' + $.webhook_dir + '*');
   remote.chown('-R ' + www_user + ' ' + $.supervisor_dir + 'webhook.conf');
+  remote.chown('-R ' + www_user + ' ' + $.apache2_conf_dir + '000-default.conf');
 
   // reload webhook
   remote.exec('supervisorctl reload');
