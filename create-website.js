@@ -24,8 +24,8 @@ plan.remote('remote-setup-website', function(remote) {
   var server_name_str = "ServerName " + $.domain_name;
   var server_alias_str = 'ServerAlias www.' + $.domain_name;
   var document_root_str = 'DocumentRoot ' + doc_root;
-  var error_log_str = 'ErrorLog ' + $.webhook_dir + 'log/' + $.domain_name + 'error.log';
-  var custom_log_str = 'CustomLog ' + $.webhook_dir + 'log/' + $.domain_name + 'access.log combined';
+  var error_log_str = 'ErrorLog ' + $.webhook_dir + 'log/' + $.domain_name + '.error.log';
+  var custom_log_str = 'CustomLog ' + $.webhook_dir + 'log/' + $.domain_name + '.access.log combined';
   var virtual_host_end_str = '</VirtualHost>';
 
 
