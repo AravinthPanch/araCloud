@@ -14,6 +14,8 @@
 - `fly remote-setup-website:dreamspace.academy`
 - `fly remote-setup-website:hardwarestartups.berlin`
 - `fly remote-setup-website:macsxperts.com`
+- `fly remote-setup-website:watergenics.tech`
+
 
 ## To Create A New Website
 - Add host ip to the domain in Godaddy
