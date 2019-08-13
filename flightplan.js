@@ -218,7 +218,7 @@ plan.target('dreamspace.academy', [{
   privateKey: '/Users/aravinth/.ssh/id_rsa',
   agent: process.env.SSH_AUTH_SOCK,
 
-  domain_name: 'thinushan.dreamspace.academy'',
+  domain_name: 'thinushan.dreamspace.academy',
   port_number: 80,
   git_repo: 'https://github.com/Thinushan/thinushan.dreamspace.academy.git',
   git_branch: 'master',
