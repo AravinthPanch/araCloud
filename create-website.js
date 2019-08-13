@@ -51,9 +51,9 @@ plan.remote('remote-setup-website', function(remote) {
   remote.with('cd ' + apache2_conf_dir, function() {
     remote.exec('a2ensite ' + $.domain_name + '.conf');
   });
-  remote.exec('apache2ctl configtest');
-  remote.exec('systemctl reload apache2');
-  remote.exec('systemctl restart apache2');
+  // remote.exec('apache2ctl configtest');
+  // remote.exec('systemctl reload apache2');
+  // remote.exec('systemctl restart apache2');
 
 });
 
@@ -89,5 +89,5 @@ plan.remote('remote-setup-website', function(remote) {
   remote.chown('-R ' + www_user + ' ' + $.webhook_dir + '*');
 
   //reload webhook
-  remote.exec('supervisorctl reload');
+  // remote.exec('supervisorctl reload');
 });
