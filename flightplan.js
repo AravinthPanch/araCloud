@@ -23,6 +23,10 @@ plan.target('araCloud', {
 });
 
 // websites
+
+//////////////////////////
+/// WWW.ARACREATE.COM ////
+//////////////////////////
 plan.target('aracreate.com', [{
     host: 'aracreate.com',
     username: 'root',
@@ -63,6 +67,10 @@ plan.target('aracreate.com', [{
   }
 ]);
 
+
+//////////////////////////
+/// WWW.ARAVINTH.INFO ////
+//////////////////////////
 plan.target('aravinth.info', [{
     host: 'aravinth.info',
     username: 'root',
@@ -104,6 +112,10 @@ plan.target('aravinth.info', [{
   }
 ]);
 
+
+///////////////////////////////
+/// WWW.DREAMSPACE.ACADEMY ////
+///////////////////////////////
 plan.target('dreamspace.academy', [{
   host: 'dreamspace.academy',
   username: 'root',
@@ -130,6 +142,23 @@ plan.target('dreamspace.academy', [{
   webhook_dir: '/var/www/webhook/',
 }]);
 
+plan.target('team.dreamspace.academy', {
+  host: 'team.dreamspace.academy',
+  username: 'root',
+  privateKey: '/Users/aravinth/.ssh/id_rsa',
+  agent: process.env.SSH_AUTH_SOCK,
+
+  domain_name: 'team.dreamspace.academy',
+  port_number: 80,
+  git_repo: 'git@github.com:dreamspace-academy/team.dreamspace.academy.git',
+  git_branch: 'master',
+  git_src_dir: '',
+  webhook_dir: '/var/www/webhook/',
+});
+
+///////////////////////////
+/// WWW.MACSXPERTS.COM ////
+///////////////////////////
 plan.target('macsxperts.com', [{
   host: 'macsxperts.com',
   username: 'root',
@@ -144,6 +173,10 @@ plan.target('macsxperts.com', [{
   webhook_dir: '/var/www/webhook/',
 }]);
 
+
+////////////////////////////////////
+/// WWW.HARDWARESTARTUPS.BERLIN ////
+////////////////////////////////////
 plan.target('hardwarestartups.berlin', [{
   host: 'hardwarestartups.berlin',
   username: 'root',
@@ -158,6 +191,10 @@ plan.target('hardwarestartups.berlin', [{
   webhook_dir: '/var/www/webhook/',
 }]);
 
+
+/////////////////////////////
+/// WWW.WATERGENICS.TECH ////
+/////////////////////////////
 plan.target('watergenics.tech', [{
     host: 'dev.watergenics.tech',
     username: 'root',

@@ -45,5 +45,13 @@
       "source": "payload",
       "name": "repository.name"
     }]
+  },
+  {
+    "id": "team.dreamspace.academy",
+    "execute-command": "/var/www/webhook/deploy.sh",
+    "pass-arguments-to-command": [{
+      "source": "string",
+      "name": "team.dreamspace.academy"
+    }]
   }
 ]
