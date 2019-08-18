@@ -33,6 +33,10 @@ plan.remote('remote-setup-website', function(remote) {
   remote.rm('-rf ' + www_root);
   remote.mkdir('-p ' + doc_root);
   remote.git('clone -b ' + $.git_branch + ' ' + $.git_repo + ' ' + git_repo_root);
+  //setup submodules, if any
+  remote.with('cd ' + git_repo_root, function() {
+    remote.git('submodule update --init');
+  });
   remote.cp('-r ' + git_repo_root + $.git_src_dir + '* ' + doc_root);
 
   // create apache2 config

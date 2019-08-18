@@ -22,6 +22,9 @@ plan.local('local-deploy-website', function(local) {
     local.with('cd ' + git_repo_root, function() {
       local.sudo('git checkout ' + $.git_branch);
       local.sudo('git pull');
+      //pull submodules, if any
+      local.sudo('git submodule foreach git pull origin master')
+
     });
 
     // install source files
