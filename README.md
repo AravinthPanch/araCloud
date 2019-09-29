@@ -15,6 +15,7 @@
 - `fly remote-setup-website:hardwarestartups.berlin`
 - `fly remote-setup-website:macsxperts.com`
 - `fly remote-setup-website:watergenics.tech`
+- `fly remote-setup-website:terrace.dreamspace.academy`
 
 
 ## To Create A New Website

@@ -53,5 +53,13 @@
       "source": "string",
       "name": "team.dreamspace.academy"
     }]
+  },
+  {
+    "id": "terrace.dreamspace.academy",
+    "execute-command": "/var/www/webhook/deploy.sh",
+    "pass-arguments-to-command": [{
+      "source": "string",
+      "name": "terrace.dreamspace.academy"
+    }]
   }
 ]
