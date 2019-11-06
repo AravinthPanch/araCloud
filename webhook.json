@@ -61,5 +61,13 @@
       "source": "string",
       "name": "terrace.dreamspace.academy"
     }]
+  },
+  {
+    "id": "files.aravinth.info",
+    "execute-command": "/var/www/webhook/deploy.sh",
+    "pass-arguments-to-command": [{
+      "source": "string",
+      "name": "files.aravinth.info"
+    }]
   }
 ]

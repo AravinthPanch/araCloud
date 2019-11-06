@@ -111,6 +111,19 @@ plan.target('aravinth.info', [{
     webhook_dir: '/var/www/webhook/',
   }
 ]);
+plan.target('files.aravinth.info', {
+  host: 'aravinth.info',
+  username: 'root',
+  privateKey: '/Users/aravinth/.ssh/id_rsa',
+  agent: process.env.SSH_AUTH_SOCK,
+
+  domain_name: 'files.aravinth.info',
+  port_number: 80,
+  git_repo: 'git@github.com:AravinthPanch/files.aravinth.info.git',
+  git_branch: 'master',
+  git_src_dir: '',
+  webhook_dir: '/var/www/webhook/',
+});
 
 
 ///////////////////////////////
