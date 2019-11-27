@@ -8,7 +8,7 @@ var plan = require('flightplan');
 require('./create-server.js');
 require('./create-website.js');
 require('./deploy-website.js');
-
+require('./create-redirect.js');
 
 // server
 plan.target('araCloud', {
@@ -123,6 +123,16 @@ plan.target('files.aravinth.info', {
   git_branch: 'master',
   git_src_dir: '',
   webhook_dir: '/var/www/webhook/',
+});
+plan.target('cal.aravinth.info', {
+  host: 'aravinth.info',
+  username: 'root',
+  privateKey: '/Users/aravinth/.ssh/id_rsa',
+  agent: process.env.SSH_AUTH_SOCK,
+
+  domain_name: 'cal.aravinth.info',
+  port_number: 80,
+  redirect_url: 'https://calendly.com/ara-panch',
 });
 
 

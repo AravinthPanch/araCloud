@@ -17,6 +17,8 @@
 - `fly remote-setup-website:watergenics.tech`
 - `fly remote-setup-website:terrace.dreamspace.academy`
 
+## Create Redirect
+- `fly remote-setup-redirect:cal.aravinth.info`
 
 ## To Create A New Website
 - Add host ip to the domain in Godaddy
