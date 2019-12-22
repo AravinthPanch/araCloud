@@ -81,11 +81,11 @@ plan.target('aravinth.info', [{
     port_number: 80,
     git_repo: 'git@github.com:AravinthPanch/aravinth.info.git',
     git_branch: 'master',
-    git_src_dir: '2015/',
+    git_src_dir: 'src/index/',
     webhook_dir: '/var/www/webhook/',
   },
   {
-    host: 'timeline.aravinth.info',
+    host: 'aravinth.info',
     username: 'root',
     privateKey: '/Users/aravinth/.ssh/id_rsa',
     agent: process.env.SSH_AUTH_SOCK,
@@ -94,11 +94,11 @@ plan.target('aravinth.info', [{
     port_number: 80,
     git_repo: 'git@github.com:AravinthPanch/aravinth.info.git',
     git_branch: 'master',
-    git_src_dir: '2018/timeline/',
+    git_src_dir: 'src/timeline/',
     webhook_dir: '/var/www/webhook/',
   },
   {
-    host: 'arabot.aravinth.info',
+    host: 'aravinth.info',
     username: 'root',
     privateKey: '/Users/aravinth/.ssh/id_rsa',
     agent: process.env.SSH_AUTH_SOCK,
@@ -107,7 +107,7 @@ plan.target('aravinth.info', [{
     port_number: 80,
     git_repo: 'git@github.com:AravinthPanch/aravinth.info.git',
     git_branch: 'master',
-    git_src_dir: '2018/arabot/',
+    git_src_dir: 'src/arabot/',
     webhook_dir: '/var/www/webhook/',
   }
 ]);
@@ -152,7 +152,7 @@ plan.target('dreamspace.academy', [{
   git_src_dir: '',
   webhook_dir: '/var/www/webhook/',
 }, {
-  host: 'dev.dreamspace.academy',
+  host: 'dreamspace.academy',
   username: 'root',
   privateKey: '/Users/aravinth/.ssh/id_rsa',
   agent: process.env.SSH_AUTH_SOCK,
@@ -166,7 +166,7 @@ plan.target('dreamspace.academy', [{
 }]);
 
 plan.target('team.dreamspace.academy', {
-  host: 'team.dreamspace.academy',
+  host: 'dreamspace.academy',
   username: 'root',
   privateKey: '/Users/aravinth/.ssh/id_rsa',
   agent: process.env.SSH_AUTH_SOCK,
@@ -180,7 +180,7 @@ plan.target('team.dreamspace.academy', {
 });
 
 plan.target('terrace.dreamspace.academy', {
-  host: 'terrace.dreamspace.academy',
+  host: 'dreamspace.academy',
   username: 'root',
   privateKey: '/Users/aravinth/.ssh/id_rsa',
   agent: process.env.SSH_AUTH_SOCK,
@@ -234,7 +234,7 @@ plan.target('hardwarestartups.berlin', [{
 /// WWW.WATERGENICS.TECH ////
 /////////////////////////////
 plan.target('watergenics.tech', [{
-    host: 'dev.watergenics.tech',
+    host: 'watergenics.tech',
     username: 'root',
     privateKey: '/Users/aravinth/.ssh/id_rsa',
     agent: process.env.SSH_AUTH_SOCK,
