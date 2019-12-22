@@ -74,6 +74,7 @@ plan.local('remote-setup-website', function(local) {
     './create-server.js',
     './create-website.js',
     './deploy-website.js',
+    './create-redirect.js',
     './deploy.sh'
   ];
   local.transfer(files, webhook_dir);
