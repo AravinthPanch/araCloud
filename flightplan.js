@@ -193,6 +193,17 @@ plan.target('terrace.dreamspace.academy', {
   webhook_dir: '/var/www/webhook/',
 });
 
+plan.target('admin.dreamspace.academy', {
+  host: 'dreamspace.academy',
+  username: 'root',
+  privateKey: '/Users/aravinth/.ssh/id_rsa',
+  agent: process.env.SSH_AUTH_SOCK,
+
+  domain_name: 'admin.dreamspace.academy',
+  port_number: 80,
+  redirect_url: 'https://blog.dreamspace.academy/wp-admin/admin.php?page=sch-dashboard',
+});
+
 
 ///////////////////////////
 /// WWW.MACSXPERTS.COM ////
