@@ -92,3 +92,14 @@ plan.target('subscribe.dreamspace.academy', {
   port_number: 80,
   redirect_url: 'https://docs.google.com/forms/d/e/1FAIpQLSexsCWfz8sz7Z8TuGxBlt4rNlmf_sa2mbs4aWU5mb-qg8Ioeg/viewform?hl=en',
 });
+
+plan.target('cal.dreamspace.academy', {
+  host: 'dreamspace.academy',
+  username: 'root',
+  privateKey: '/Users/aravinth/.ssh/id_rsa',
+  agent: process.env.SSH_AUTH_SOCK,
+
+  domain_name: 'cal.dreamspace.academy',
+  port_number: 80,
+  redirect_url: 'http://dreamspace.academy/pages/master-page/calendar.php',
+});
