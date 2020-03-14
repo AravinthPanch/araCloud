@@ -44,6 +44,7 @@ plan.target('aravinth.info', [{
     webhook_dir: '/var/www/webhook/',
   }
 ]);
+
 plan.target('files.aravinth.info', {
   host: 'aravinth.info',
   username: 'root',
@@ -57,6 +58,7 @@ plan.target('files.aravinth.info', {
   git_src_dir: '',
   webhook_dir: '/var/www/webhook/',
 });
+
 plan.target('cal.aravinth.info', {
   host: 'aravinth.info',
   username: 'root',
