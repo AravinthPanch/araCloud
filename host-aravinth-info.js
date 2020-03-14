@@ -69,3 +69,17 @@ plan.target('cal.aravinth.info', {
   port_number: 80,
   redirect_url: 'https://calendly.com/ara-panch',
 });
+
+plan.target('arametrics.aravinth.info', {
+  host: 'aravinth.info',
+  username: 'root',
+  privateKey: '/Users/aravinth/.ssh/id_rsa',
+  agent: process.env.SSH_AUTH_SOCK,
+
+  domain_name: 'arametrics.aravinth.info',
+  port_number: 80,
+  git_repo: 'git@github.com:AravinthPanch/araMetrics.git',
+  git_branch: 'master',
+  git_src_dir: '',
+  webhook_dir: '/var/www/webhook/',
+});
