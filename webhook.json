@@ -63,6 +63,14 @@
     }]
   },
   {
+    "id": "corona.dreamspace.academy",
+    "execute-command": "/var/www/webhook/deploy.sh",
+    "pass-arguments-to-command": [{
+      "source": "string",
+      "name": "corona.dreamspace.academy"
+    }]
+  },
+  {
     "id": "files.aravinth.info",
     "execute-command": "/var/www/webhook/deploy.sh",
     "pass-arguments-to-command": [{
@@ -70,7 +78,6 @@
       "name": "files.aravinth.info"
     }]
   },
-  ,
   {
     "id": "arametrics.aravinth.info",
     "execute-command": "/var/www/webhook/deploy.sh",

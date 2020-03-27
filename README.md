@@ -25,3 +25,10 @@
 - Add host, domain, git info of the website to flightplan.js
 - Add hostname to webhook.json
 - `fly remote-setup-website:domain_name`
+
+
+- Add webhook setting in GitHub
+  - Payload URL - http://aravinth.info:9000/hooks/domain_name
+  - Content type - application/json
+  - Which events would you like to trigger this webhook? Just the push event
+  - Active
