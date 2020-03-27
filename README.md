@@ -24,11 +24,14 @@
 - Add host ip to the domain in Godaddy
 - Add host, domain, git info of the website to flightplan.js
 - Add hostname to webhook.json
-- `fly remote-setup-website:domain_name`
+- `fly remote-setup-website:new_domain_name`
 
 
 - Add webhook setting in GitHub
-  - Payload URL - http://aravinth.info:9000/hooks/domain_name
+  - Payload URL - http://aravinth.info:9000/hooks/new_domain_name
   - Content type - application/json
   - Which events would you like to trigger this webhook? Just the push event
   - Active
+
+- Add the domain to HTTPS
+  - sudo certbot --apache -d dreamspace.academy -d blog.dreamspace.academy -d dev.dreamspace.academy -d team.dreamspace.academy -d terrace.dreamspace.academy -d www.dreamspace.academy -d new_domain_name
