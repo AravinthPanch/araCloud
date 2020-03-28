@@ -67,7 +67,7 @@ plan.target('corona.dreamspace.academy', {
 
   domain_name: 'corona.dreamspace.academy',
   port_number: 80,
-  git_repo: 'git@github.com:Viththiyakaran/covid-19.git',
+  git_repo: 'git@github.com:Viththiyakaran/coronabot.git',
   git_branch: 'master',
   git_src_dir: '',
   webhook_dir: '/var/www/webhook/',
