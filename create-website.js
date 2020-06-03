@@ -79,8 +79,7 @@ plan.local('remote-setup-website', function(local) {
     './host-aracreate-com.js',
     './host-aravinth-info.js',
     './host-dreamspace-academy.js',
-    './host-others.js',
-    './host-watergenics-tech.js'    
+    './host-others.js'
   ];
   local.transfer(files, webhook_dir);
 });
