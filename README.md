@@ -34,4 +34,4 @@
   - Active
 
 - Add the domain to HTTPS
-  - sudo certbot --apache -d dreamspace.academy -d blog.dreamspace.academy -d dev.dreamspace.academy -d team.dreamspace.academy -d terrace.dreamspace.academy -d www.dreamspace.academy -d new_domain_name
+  - sudo certbot --expand -d aravinth.info,arabot.aravinth.info,files.aravinth.info,timeline.aravinth.info,www.aravinth.info,meet.aravinth.info,cal.aravinth.info
