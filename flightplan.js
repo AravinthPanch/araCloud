@@ -14,7 +14,6 @@ require('./create-redirect.js');
 require('./host-aracreate-com.js');
 require('./host-aravinth-info.js');
 require('./host-dreamspace-academy.js');
-require('./host-watergenics-tech.js');
 require('./host-others.js');
 
 // server

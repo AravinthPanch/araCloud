@@ -1,11 +1,4 @@
-[{
-    "id": "watergenics.tech",
-    "execute-command": "/var/www/webhook/deploy.sh",
-    "pass-arguments-to-command": [{
-      "source": "payload",
-      "name": "repository.name"
-    }]
-  },
+[
   {
     "id": "aracreate.com",
     "execute-command": "/var/www/webhook/deploy.sh",
