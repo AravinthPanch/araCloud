@@ -109,3 +109,17 @@ plan.target('arametrics.aravinth.info', {
   git_src_dir: '',
   webhook_dir: '/var/www/webhook/',
 });
+
+plan.target('talents.aravinth.info', {
+  host: 'aravinth.info',
+  username: 'root',
+  privateKey: '/Users/aravinth/.ssh/id_rsa',
+  agent: process.env.SSH_AUTH_SOCK,
+
+  domain_name: 'talents.aravinth.info',
+  port_number: 80,
+  git_repo: 'git@github.com:AravinthPanch/talents.aravinth.info.git',
+  git_branch: 'master',
+  git_src_dir: '',
+  webhook_dir: '/var/www/webhook/',
+});

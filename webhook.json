@@ -78,5 +78,13 @@
       "source": "string",
       "name": "arametrics.aravinth.info"
     }]
+  },
+  {
+    "id": "talents.aravinth.info",
+    "execute-command": "/var/www/webhook/deploy.sh",
+    "pass-arguments-to-command": [{
+      "source": "string",
+      "name": "talents.aravinth.info"
+    }]
   }
 ]
