@@ -20,6 +20,9 @@
 ## Create Redirect
 - `fly remote-setup-redirect:cal.aravinth.info`
 
+## Create App
+- `fly create-app:arametrics-clockify-google`
+
 ## To Create A New Website
 - Add host ip to the domain in Godaddy
 - Add host, domain, git info of the website to flightplan.js

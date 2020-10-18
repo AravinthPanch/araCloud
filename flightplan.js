@@ -9,6 +9,7 @@ require('./create-server.js');
 require('./create-website.js');
 require('./deploy-website.js');
 require('./create-redirect.js');
+require('./create-app.js');
 
 // hosts
 require('./host-aracreate-com.js');
