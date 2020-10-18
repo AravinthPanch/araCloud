@@ -10,6 +10,9 @@ var config = require("./config");
 plan.remote("remote-setup-redirect", function (remote) {
   remote.hostname();
 
+  // definitions
+  var $ = remote.runtime;
+
   var apache2_conf_file = config.apache2_conf_dir + $.domain_name + ".conf";
   var virtual_host_str = "<VirtualHost *:" + config.port_number + ">";
   var server_admin_str = "ServerAdmin me@aravinth.info";
