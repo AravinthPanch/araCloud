@@ -13,11 +13,9 @@ plan.target("aravinth.info", [
     agent: config.agent,
 
     domain_name: "aravinth.info",
-    port_number: 80,
     git_repo: "git@github.com:AravinthPanch/aravinth.info.git",
     git_branch: "master",
-    git_src_dir: "src/index/",
-    webhook_dir: "/var/www/webhook/",
+    git_src_dir: "src/index/"
   },
   {
     host: config.host,
@@ -26,11 +24,9 @@ plan.target("aravinth.info", [
     agent: config.agent,
 
     domain_name: "timeline.aravinth.info",
-    port_number: 80,
     git_repo: "git@github.com:AravinthPanch/aravinth.info.git",
     git_branch: "master",
-    git_src_dir: "src/timeline/",
-    webhook_dir: "/var/www/webhook/",
+    git_src_dir: "src/timeline/"
   },
   {
     host: config.host,
@@ -39,11 +35,9 @@ plan.target("aravinth.info", [
     agent: config.agent,
 
     domain_name: "arabot.aravinth.info",
-    port_number: 80,
     git_repo: "git@github.com:AravinthPanch/aravinth.info.git",
     git_branch: "master",
-    git_src_dir: "src/arabot/",
-    webhook_dir: "/var/www/webhook/",
+    git_src_dir: "src/arabot/"
   },
   {
     host: config.host,
@@ -52,11 +46,9 @@ plan.target("aravinth.info", [
     agent: config.agent,
 
     domain_name: "meet.aravinth.info",
-    port_number: 80,
     git_repo: "git@github.com:AravinthPanch/aravinth.info.git",
     git_branch: "master",
-    git_src_dir: "src/meet/",
-    webhook_dir: "/var/www/webhook/",
+    git_src_dir: "src/meet/"
   },
   {
     host: config.host,
@@ -65,12 +57,10 @@ plan.target("aravinth.info", [
     agent: config.agent,
 
     domain_name: "projects.aravinth.info",
-    port_number: 80,
     git_repo: "git@github.com:AravinthPanch/aravinth.info.git",
     git_branch: "master",
-    git_src_dir: "src/projects/",
-    webhook_dir: "/var/www/webhook/",
-  },
+    git_src_dir: "src/projects/"
+  }
 ]);
 
 plan.target("files.aravinth.info", {
@@ -80,11 +70,9 @@ plan.target("files.aravinth.info", {
   agent: config.agent,
 
   domain_name: "files.aravinth.info",
-  port_number: 80,
   git_repo: "git@github.com:AravinthPanch/files.aravinth.info.git",
   git_branch: "master",
-  git_src_dir: "",
-  webhook_dir: "/var/www/webhook/",
+  git_src_dir: ""
 });
 
 plan.target("cal.aravinth.info", {
@@ -94,7 +82,6 @@ plan.target("cal.aravinth.info", {
   agent: config.agent,
 
   domain_name: "cal.aravinth.info",
-  port_number: 80,
   redirect_url: "https://calendly.com/ara-panch",
 });
 
@@ -105,25 +92,7 @@ plan.target("talents.aravinth.info", {
   agent: config.agent,
 
   domain_name: "talents.aravinth.info",
-  port_number: 80,
   git_repo: "git@github.com:AravinthPanch/talents.aravinth.info.git",
   git_branch: "master",
-  git_src_dir: "",
-  webhook_dir: "/var/www/webhook/",
-});
-
-// APPS
-plan.target("arametrics-clockify-google", {
-  host: config.host,
-  username: config.username,
-  privateKey: config.privateKey,
-  agent: config.agent,
-
-  app_name: "arametrics-clockify-google",
-  git_repo: "git@github.com:AravinthPanch/araMetrics.git",
-  git_branch: "master",
-  git_src_dir: "arametrics-clockify-google/",
-  local_src_dir:
-    "/Users/aravinth/local-workspace/araMetrics/arametrics-clockify-google/",
-  local_secrets_dir: "secrets/",
+  git_src_dir: ""
 });

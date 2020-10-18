@@ -12,11 +12,9 @@ plan.target("macsxperts.com", [
     agent: config.agent,
 
     domain_name: "macsxperts.com",
-    port_number: 80,
     git_repo: "git@github.com:AravinthPanch/macsxperts.com.git",
     git_branch: "master",
-    git_src_dir: "",
-    webhook_dir: "/var/www/webhook/",
+    git_src_dir: ""
   },
 ]);
 
@@ -31,10 +29,8 @@ plan.target("hardwarestartups.berlin", [
     agent: config.agent,
 
     domain_name: "hardwarestartups.berlin",
-    port_number: 80,
     git_repo: "git@github.com:AravinthPanch/hardwarestartups.berlin.git",
     git_branch: "master",
-    git_src_dir: "",
-    webhook_dir: "/var/www/webhook/",
+    git_src_dir: ""
   },
 ]);

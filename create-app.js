@@ -4,9 +4,9 @@
  */
 
 var plan = require("flightplan");
+var config = require("./config");
 
 // definitions
-var webhook_dir = "/var/www/webhook/";
 var remote_app_root = undefined;
 var remote_app_dir = undefined;
 
@@ -48,5 +48,5 @@ plan.local("create-app", function (local) {
   });
 
   //  Update flightplan deployment scripts
-  local.transfer("./", webhook_dir);
+  local.transfer("./", config.webhook_dir);
 });

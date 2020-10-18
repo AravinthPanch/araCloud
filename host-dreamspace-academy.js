@@ -13,11 +13,9 @@ plan.target("dreamspace.academy", [
     agent: config.agent,
 
     domain_name: "dreamspace.academy",
-    port_number: 80,
     git_repo: "git@github.com:dreamspace-academy/dreamspace.academy.git",
     git_branch: "master",
-    git_src_dir: "",
-    webhook_dir: "/var/www/webhook/",
+    git_src_dir: ""
   },
   {
     host: config.host,
@@ -26,12 +24,10 @@ plan.target("dreamspace.academy", [
     agent: config.agent,
 
     domain_name: "dev.dreamspace.academy",
-    port_number: 80,
     git_repo: "git@github.com:dreamspace-academy/dreamspace.academy.git",
     git_branch: "dev",
-    git_src_dir: "",
-    webhook_dir: "/var/www/webhook/",
-  },
+    git_src_dir: ""
+  }
 ]);
 
 plan.target("team.dreamspace.academy", {
@@ -41,11 +37,9 @@ plan.target("team.dreamspace.academy", {
   agent: config.agent,
 
   domain_name: "team.dreamspace.academy",
-  port_number: 80,
   git_repo: "git@github.com:dreamspace-academy/team.dreamspace.academy.git",
   git_branch: "master",
-  git_src_dir: "",
-  webhook_dir: "/var/www/webhook/",
+  git_src_dir: ""
 });
 
 plan.target("terrace.dreamspace.academy", {
@@ -55,11 +49,9 @@ plan.target("terrace.dreamspace.academy", {
   agent: config.agent,
 
   domain_name: "terrace.dreamspace.academy",
-  port_number: 80,
   git_repo: "git@github.com:dreamspace-academy/terrace.dreamspace.academy.git",
   git_branch: "master",
-  git_src_dir: "",
-  webhook_dir: "/var/www/webhook/",
+  git_src_dir: ""
 });
 
 plan.target("corona.dreamspace.academy", {
@@ -69,11 +61,9 @@ plan.target("corona.dreamspace.academy", {
   agent: config.agent,
 
   domain_name: "corona.dreamspace.academy",
-  port_number: 80,
   git_repo: "git@github.com:Viththiyakaran/coronabot.git",
   git_branch: "master",
-  git_src_dir: "",
-  webhook_dir: "/var/www/webhook/",
+  git_src_dir: ""
 });
 
 plan.target("visualmakers.dreamspace.academy", {
@@ -83,9 +73,7 @@ plan.target("visualmakers.dreamspace.academy", {
   agent: config.agent,
 
   domain_name: "visualmakers.dreamspace.academy",
-  port_number: 80,
   git_repo: "git@github.com:dreamspace-academy/dreamspace.academy.git",
   git_branch: "master",
-  git_src_dir: "",
-  webhook_dir: "/var/www/webhook/",
+  git_src_dir: ""
 });

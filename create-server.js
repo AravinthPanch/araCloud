@@ -4,19 +4,15 @@
  */
 
 var plan = require('flightplan');
+var config = require("./config");
 
 // create all the necessary folders
 plan.remote('remote-setup-server', function(remote) {
   remote.hostname();
-  var $ = remote.runtime;
-
-  // definitions
-  var webhook_dir = $.webhook_dir;
-  var www_user = $.username + ':' + $.username;
 
   //setup webhook
-  remote.rm('-rf ' + webhook_dir);
-  remote.mkdir('-p ' + webhook_dir + 'log/');
+  remote.rm('-rf ' + config.webhook_dir);
+  remote.mkdir('-p ' + config.webhook_dir + 'log/');
 
   //setup nodejs
   remote.exec('apt install npm');
@@ -25,7 +21,7 @@ plan.remote('remote-setup-server', function(remote) {
 
   //setup flightplan
   remote.exec('npm install -g flightplan');
-  remote.with('cd ' + webhook_dir, function() {
+  remote.with('cd ' + config.webhook_dir, function() {
     remote.exec('npm install flightplan');
   });
 
@@ -35,29 +31,16 @@ plan.remote('remote-setup-server', function(remote) {
 plan.local('remote-setup-server', function(local) {
   local.hostname();
 
-  // definitions
-  var webhook_dir = '/var/www/webhook/';
-  var supervisor_dir = '/etc/supervisor/conf.d/';
-  var apache2_conf_dir = '/etc/apache2/sites-available/';
-
-  var files = [
-    './webhook.json',
-    './flightplan.js',
-    './create-server.js',
-    './create-website.js',
-    './deploy-website.js',
-    './deploy.sh',
-    './000-default.conf'
-  ];
-  local.transfer(files, webhook_dir);
+  //  Update flightplan deployment scripts
+  local.transfer("./", config.webhook_dir);
 
   // transfer supervisor conf for webhook
   var files = ['./webhook.conf'];
-  local.transfer(files, supervisor_dir);
+  local.transfer(files, config.supervisor_dir);
 
   // transfer default apache2 web
   var files = ['./000-default.conf'];
-  local.transfer(files, apache2_conf_dir);
+  local.transfer(files, config.apache2_conf_dir);
 });
 
 // start necessary services
@@ -69,9 +52,9 @@ plan.remote('remote-setup-server', function(remote) {
   var www_user = $.username + ':' + $.username;
 
   // setup files
-  remote.chmod('+x ' + $.webhook_dir + 'deploy.sh');
-  remote.chown('-R ' + www_user + ' ' + $.webhook_dir);
-  remote.chown('-R ' + www_user + ' ' + $.webhook_dir + '*');
+  remote.chmod('+x ' + config.webhook_dir + 'deploy.sh');
+  remote.chown('-R ' + www_user + ' ' + config.webhook_dir);
+  remote.chown('-R ' + www_user + ' ' + config.webhook_dir + '*');
   remote.chown('-R ' + www_user + ' ' + $.supervisor_dir + 'webhook.conf');
   remote.chown('-R ' + www_user + ' ' + $.apache2_conf_dir + '000-default.conf');
 

@@ -19,6 +19,8 @@ require("./host-aracreate-com.js");
 require("./host-aravinth-info.js");
 require("./host-dreamspace-academy.js");
 require("./host-others.js");
+require("./host-apps.js");
+
 
 // server
 plan.target("araCloud", {
@@ -26,8 +28,4 @@ plan.target("araCloud", {
   username: config.username,
   privateKey: config.privateKey,
   agent: config.agent,
-
-  webhook_dir: "/var/www/webhook/",
-  supervisor_dir: "/etc/supervisor/conf.d/",
-  apache2_conf_dir: "/etc/apache2/sites-available/",
 });
