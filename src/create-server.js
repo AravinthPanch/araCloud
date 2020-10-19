@@ -32,7 +32,8 @@ plan.local("create-server", function (local) {
   local.hostname();
 
   //  Update flightplan deployment scripts
-  local.transfer("./*", config.aracloud_root);
+  var files_folders = local.exec('git ls-files && git ls-files --others --exclude-standard', {silent: true});
+  local.transfer(files_folders, config.aracloud_root);
 
   // transfer supervisor conf for webhook
   local.with("cd ./config", () => {
