@@ -8,7 +8,7 @@ An automated deployment system for all websites and apps on the private virtual 
 
 ## To create a new server
 - Add relevant server details in config/config.js
-- `fly create-server:araCloud`
+- `fly create-server:aracloud`
 
 ## To create a new website
 - Add host ip to the domain in Godaddy

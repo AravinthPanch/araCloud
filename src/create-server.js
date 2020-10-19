@@ -3,56 +3,65 @@
  * Author:        Aravinth Panch
  */
 
-var plan = require('flightplan');
+var plan = require("flightplan");
 var config = require("../config/config");
 
-// create all the necessary folders
-plan.remote('create-server', function(remote) {
+// set up all the necessary folders and services
+plan.remote("create-server", function (remote) {
   remote.hostname();
 
-  //setup webhook
-  remote.rm('-rf ' + config.aracloud_root);
-  remote.mkdir('-p ' + config.aracloud_root + 'logs/');
+  //setup aracloud root directory
+  remote.rm("-rf " + config.aracloud_root);
+  remote.mkdir("-p " + config.aracloud_root + "logs/");
+  remote.rm("-r " + config.supervisor_dir + config.webhook_supervisor_conf);
+  remote.rm("-r " + config.apache2_conf_dir + config.apache_default_conf);
 
-  //setup nodejs
-  remote.exec('apt install npm');
-  remote.exec('npm install -g n');
-  remote.exec('n latest');
+  //install nodejs
+  remote.exec("apt-get install npm");
+  remote.exec("npm install -g n");
+  remote.exec("n " + config.node_version);
 
-  //setup flightplan
-  remote.exec('npm install -g flightplan');
+  //install flightplan
+  remote.exec(
+    "export USER=root && npm install -g flightplan@" + config.flightplan_version
+  );
 });
 
 // transfer necessary files from local host
-plan.local('create-server', function(local) {
+plan.local("create-server", function (local) {
   local.hostname();
 
   //  Update flightplan deployment scripts
-  local.transfer("./", config.aracloud_root);
+  local.transfer("./*", config.aracloud_root);
 
   // transfer supervisor conf for webhook
-  var files = ['./webhook.conf'];
-  local.transfer(files, config.supervisor_dir);
+  local.with("cd ./config", () => {
+    local.transfer(config.webhook_supervisor_conf, config.supervisor_dir);
+  });
 
-  // transfer default apache2 web
-  var files = ['./000-default.conf'];
-  local.transfer(files, config.apache2_conf_dir);
+  // transfer default apache2 site config
+  local.with("cd ./config", () => {
+    local.transfer(config.apache_default_conf, config.apache2_conf_dir);
+  });
 });
 
 // start necessary services
-plan.remote('create-server', function(remote) {
+plan.remote("create-server", function (remote) {
   remote.hostname();
-  var $ = remote.runtime;
 
   // definitions
-  var www_user = $.username + ':' + $.username;
+  var $ = remote.runtime;
+  var www_user = $.username + ":" + $.username;
 
-  // setup files
-  remote.chown('-R ' + www_user + ' ' + config.aracloud_root);
-  remote.chown('-R ' + www_user + ' ' + config.aracloud_root + '*');
-  remote.chown('-R ' + www_user + ' ' + config.supervisor_dir + 'webhook.conf');
-  remote.chown('-R ' + www_user + ' ' + config.apache2_conf_dir + '000-default.conf');
+  // change ownership
+  remote.chown("-R " + www_user + " " + config.aracloud_root);
+  remote.chown("-R " + www_user + " " + config.aracloud_root + "*");
+  remote.chown("-R " + www_user + " " + config.supervisor_dir + config.webhook_supervisor_conf);
+  remote.chown(
+    "-R " + www_user + " " + config.apache2_conf_dir + config.apache_default_conf
+  );
 
-  // reload webhook
-  remote.exec('supervisorctl reload');
+  // reload supervisor & apache for new config
+  remote.exec("supervisorctl reload");
+  remote.exec("systemctl restart apache2");
 });
