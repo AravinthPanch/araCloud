@@ -3,12 +3,14 @@
  * Author:        Aravinth Panch
  */
 
+// TODO: install command as scripts arametrics-clockify-google_install.sh
+
 var plan = require("flightplan");
 var config = require("../config/config");
 
 // definitions
-var remote_app_root = undefined;
-var remote_app_dir = undefined;
+var app_root = undefined;
+var app_dir = undefined;
 
 // Set up an app in the cloud
 plan.remote("create-app", function (remote) {
@@ -16,23 +18,34 @@ plan.remote("create-app", function (remote) {
 
   // definitions
   var $ = remote.runtime;
-  remote_app_root = config.apps_root + $.app_name + "/";
-  remote_app_dir = remote_app_root + "app/";
-  remote_app_repo_dir = remote_app_root + "repo/";
+  app_root = config.apps_root + $.app_name + "/";
+  app_dir = app_root + "app/";
+  app_repo_dir = app_root + "repo/";
 
   //Create app folder with necessary folders
-  remote.rm("-rf " + remote_app_root);
-  remote.mkdir("-p " + remote_app_dir);
+  remote.rm("-rf " + app_root);
+  remote.mkdir("-p " + app_dir);
   remote.git(
-    "clone -b " + $.git_branch + " " + $.git_repo + " " + remote_app_repo_dir
+    "clone -b " + $.git_branch + " " + $.git_repo + " " + app_repo_dir
   );
+
   //setup submodules, if any
-  remote.with("cd " + remote_app_repo_dir, function () {
+  remote.with("cd " + app_repo_dir, function () {
     remote.git("submodule update --init");
   });
-  remote.cp(
-    "-r " + remote_app_repo_dir + $.git_src_dir + "* " + remote_app_dir
-  );
+  remote.cp("-r " + app_repo_dir + $.git_src_dir + "* " + app_dir);
+
+  // place cronjob
+  remote.cp(app_dir + "config/" + $.app_name + ".cron" + " " + config.cron_dir);
+  remote.with("cd " + config.cron_dir, function () {
+    remote.exec("crontab " + $.app_name + ".cron");
+  });
+
+  // install depencies
+  remote.with("cd " + app_dir, function () {
+    remote.exec("pip install -r requirements.txt");
+  });
+
 });
 
 // Transfer necessary files from local to remote
@@ -44,7 +57,7 @@ plan.local("create-app", function (local) {
 
   // copy secrets
   local.with("cd " + $.local_src_dir, () => {
-    local.transfer($.local_secrets_dir, remote_app_dir);
+    local.transfer($.local_secrets_dir, app_dir);
   });
 
   //  Update flightplan deployment scripts

@@ -15,5 +15,6 @@ config.node_version = "14.14.0"
 config.flightplan_version = "0.6.20"
 config.webhook_supervisor_conf="git_webhook_supervisor.conf"
 config.apache_default_conf="000-default.conf"
+config.cron_dir="/etc/cron.d/"
 
 module.exports = config;

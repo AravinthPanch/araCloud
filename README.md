@@ -21,7 +21,6 @@ An automated deployment system for all websites and apps on the private virtual 
   - Active
 - Run `fly create-website:new_domain_name`
 - Add the domain to HTTPS
-  - sudo certbot --expand -d aravinth.info,arabot.aravinth.info,files.aravinth.info,timeline.aravinth.info,www.aravinth.info,meet.aravinth.info,cal.aravinth.info
 
 ## To deploy website locally on server
 - `fly deploy-website:hardwarestartups.berlin`
@@ -41,5 +40,10 @@ An automated deployment system for all websites and apps on the private virtual 
 - `fly create-website:hardwarestartups.berlin`
 - `fly create-website:macsxperts.com`
 - `fly create-website:aracreate.com`
-- `fly create-app:arametrics-clockify-google`
 - `fly create-redirect:cal.aravinth.info`
+- `fly create-app:arametrics-clockify-google`
+
+### Created ssl certificates
+- sudo certbot --expand -d aracreate.com
+- sudo certbot --expand -d aravinth.info,www.aravinth.info,arabot.aravinth.info,cal.aravinth.info,files.aravinth.info,meet.aravinth.info,projects.aravinth.info,talents.aravinth.info
+- sudo certbot --expand -d dreamspace.academy,www.dreamspace.academy,corona.dreamspace.academy,dev.dreamspace.academy,team.dreamspace.academy,terrace.dreamspace.academy,visualmakers.dreamspace.academy
