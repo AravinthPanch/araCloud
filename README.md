@@ -31,10 +31,15 @@ An automated deployment system for all websites and apps on the private virtual 
 
 ### Created objects
 - `fly create-website:aravinth.info`
-- `fly create-website:aracreate.com`
+- `fly create-website:files.aravinth.info`
+- `fly create-website:talents.aravinth.info`
 - `fly create-website:dreamspace.academy`
+- `fly create-website:team.dreamspace.academy`
+- `fly create-website:terrace.dreamspace.academy`
+- `fly create-website:corona.dreamspace.academy`
+- `fly create-website:visualmakers.dreamspace.academy`
 - `fly create-website:hardwarestartups.berlin`
 - `fly create-website:macsxperts.com`
-- `fly create-website:terrace.dreamspace.academy`
+- `fly create-website:aracreate.com`
 - `fly create-app:arametrics-clockify-google`
 - `fly create-redirect:cal.aravinth.info`

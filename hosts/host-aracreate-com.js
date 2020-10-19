@@ -13,6 +13,7 @@ plan.target("aracreate.com", [
     agent: config.agent,
 
     domain_name: "aracreate.com",
+    domain_name_reversed: "com.aracreate",
     git_repo: "git@github.com:AravinthPanch/aracreate.com.git",
     git_branch: "master",
     git_src_dir: ""

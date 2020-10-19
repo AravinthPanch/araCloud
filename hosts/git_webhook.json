@@ -72,14 +72,6 @@
     }]
   },
   {
-    "id": "arametrics.aravinth.info",
-    "execute-command": "/var/www/aracloud/src/deploy-website.sh",
-    "pass-arguments-to-command": [{
-      "source": "string",
-      "name": "arametrics.aravinth.info"
-    }]
-  },
-  {
     "id": "talents.aravinth.info",
     "execute-command": "/var/www/aracloud/src/deploy-website.sh",
     "pass-arguments-to-command": [{
