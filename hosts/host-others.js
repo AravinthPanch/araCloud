@@ -12,10 +12,11 @@ plan.target("macsxperts.com", [
     agent: config.agent,
 
     domain_name: "macsxperts.com",
+    domain_name_reversed: "com.macsxperts",
     git_repo: "git@github.com:AravinthPanch/macsxperts.com.git",
     git_branch: "master",
     git_src_dir: ""
-  },
+  }
 ]);
 
 ////////////////////////////////////
@@ -29,8 +30,9 @@ plan.target("hardwarestartups.berlin", [
     agent: config.agent,
 
     domain_name: "hardwarestartups.berlin",
+    domain_name_reversed: "berlin.hardwarestartups",
     git_repo: "git@github.com:AravinthPanch/hardwarestartups.berlin.git",
     git_branch: "master",
     git_src_dir: ""
-  },
+  }
 ]);

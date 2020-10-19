@@ -10,7 +10,7 @@ var config = require("../config/config");
 plan.remote("create-server", function (remote) {
   remote.hostname();
 
-  //setup aracloud root directory
+  //set up aracloud root directory
   remote.rm("-rf " + config.aracloud_root);
   remote.mkdir("-p " + config.aracloud_root + "logs/");
   remote.rm("-r " + config.supervisor_dir + config.webhook_supervisor_conf);
