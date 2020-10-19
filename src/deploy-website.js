@@ -6,7 +6,7 @@
 var plan = require('flightplan');
 
 // deploy website on remote server
-plan.local('local-deploy-website', function(local) {
+plan.local('deploy-website', function(local) {
   local.hostname();
 
   for (var i = 0; i < local._context.hosts.length; i++) {

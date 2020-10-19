@@ -4,7 +4,7 @@
  */
 
 var plan = require("flightplan");
-var config = require("./config");
+var config = require("../config/config");
 
 // definitions
 var remote_app_root = undefined;
@@ -16,7 +16,7 @@ plan.remote("create-app", function (remote) {
 
   // definitions
   var $ = remote.runtime;
-  remote_app_root = "/var/www/apps.aravinth.info/" + $.app_name + "/";
+  remote_app_root = config.apps_root + $.app_name + "/";
   remote_app_dir = remote_app_root + "app/";
   remote_app_repo_dir = remote_app_root + "repo/";
 
@@ -48,5 +48,5 @@ plan.local("create-app", function (local) {
   });
 
   //  Update flightplan deployment scripts
-  local.transfer("./", config.webhook_dir);
+  local.transfer("./", config.aracloud_root);
 });

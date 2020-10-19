@@ -3,7 +3,7 @@
 # Description:   Automatic deployment of websites on araCloud
 # Author:        Aravinth Panch
 
-webhook_dir='/var/www/webhook/'
+webhook_dir='/var/www/aracloud/'
 timestamp=$(date)
 repo_name=$1
 

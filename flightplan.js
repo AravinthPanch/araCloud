@@ -5,25 +5,25 @@
 
 // includes
 var plan = require("flightplan");
-var config = require("./config");
+var config = require("./config/config");
 
-// scripts
-require("./create-server.js");
-require("./create-website.js");
-require("./deploy-website.js");
-require("./create-redirect.js");
-require("./create-app.js");
+// src
+require("./src/create-server.js");
+require("./src/create-website.js");
+require("./src/deploy-website.js");
+require("./src/create-redirect.js");
+require("./src/create-app.js");
 
 // hosts
-require("./host-aracreate-com.js");
-require("./host-aravinth-info.js");
-require("./host-dreamspace-academy.js");
-require("./host-others.js");
-require("./host-apps.js");
+require("./hosts/host-aracreate-com.js");
+require("./hosts/host-aravinth-info.js");
+require("./hosts/host-dreamspace-academy.js");
+require("./hosts/host-others.js");
+require("./hosts/host-apps.js");
 
 
 // server
-plan.target("araCloud", {
+plan.target("aracloud", {
   host: config.host,
   username: config.username,
   privateKey: config.privateKey,

@@ -4,15 +4,15 @@
  */
 
 var plan = require('flightplan');
-var config = require("./config");
+var config = require("../config/config");
 
 // create all the necessary folders
-plan.remote('remote-setup-server', function(remote) {
+plan.remote('create-server', function(remote) {
   remote.hostname();
 
   //setup webhook
-  remote.rm('-rf ' + config.webhook_dir);
-  remote.mkdir('-p ' + config.webhook_dir + 'log/');
+  remote.rm('-rf ' + config.aracloud_root);
+  remote.mkdir('-p ' + config.aracloud_root + 'logs/');
 
   //setup nodejs
   remote.exec('apt install npm');
@@ -21,18 +21,14 @@ plan.remote('remote-setup-server', function(remote) {
 
   //setup flightplan
   remote.exec('npm install -g flightplan');
-  remote.with('cd ' + config.webhook_dir, function() {
-    remote.exec('npm install flightplan');
-  });
-
 });
 
 // transfer necessary files from local host
-plan.local('remote-setup-server', function(local) {
+plan.local('create-server', function(local) {
   local.hostname();
 
   //  Update flightplan deployment scripts
-  local.transfer("./", config.webhook_dir);
+  local.transfer("./", config.aracloud_root);
 
   // transfer supervisor conf for webhook
   var files = ['./webhook.conf'];
@@ -44,7 +40,7 @@ plan.local('remote-setup-server', function(local) {
 });
 
 // start necessary services
-plan.remote('remote-setup-server', function(remote) {
+plan.remote('create-server', function(remote) {
   remote.hostname();
   var $ = remote.runtime;
 
@@ -52,11 +48,10 @@ plan.remote('remote-setup-server', function(remote) {
   var www_user = $.username + ':' + $.username;
 
   // setup files
-  remote.chmod('+x ' + config.webhook_dir + 'deploy.sh');
-  remote.chown('-R ' + www_user + ' ' + config.webhook_dir);
-  remote.chown('-R ' + www_user + ' ' + config.webhook_dir + '*');
-  remote.chown('-R ' + www_user + ' ' + $.supervisor_dir + 'webhook.conf');
-  remote.chown('-R ' + www_user + ' ' + $.apache2_conf_dir + '000-default.conf');
+  remote.chown('-R ' + www_user + ' ' + config.aracloud_root);
+  remote.chown('-R ' + www_user + ' ' + config.aracloud_root + '*');
+  remote.chown('-R ' + www_user + ' ' + config.supervisor_dir + 'webhook.conf');
+  remote.chown('-R ' + www_user + ' ' + config.apache2_conf_dir + '000-default.conf');
 
   // reload webhook
   remote.exec('supervisorctl reload');

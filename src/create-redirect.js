@@ -4,17 +4,17 @@
  */
 
 var plan = require("flightplan");
-var config = require("./config");
+var config = require("../config/config");
 
 // create website on remote server
-plan.remote("remote-setup-redirect", function (remote) {
+plan.remote("create-redirect", function (remote) {
   remote.hostname();
 
   // definitions
   var $ = remote.runtime;
 
   var apache2_conf_file = config.apache2_conf_dir + $.domain_name + ".conf";
-  var virtual_host_str = "<VirtualHost *:" + config.port_number + ">";
+  var virtual_host_str = "<VirtualHost *:" + config.http_port_number + ">";
   var server_admin_str = "ServerAdmin me@aravinth.info";
   var server_name_str = "ServerName " + $.domain_name;
   var server_alias_str = "ServerAlias www." + $.domain_name;

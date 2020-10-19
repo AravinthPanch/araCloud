@@ -1,5 +1,5 @@
 var plan = require("flightplan");
-var config = require("./config");
+var config = require("../config/config");
 
 ///////////////////////////
 /// WWW.MACSXPERTS.COM ////

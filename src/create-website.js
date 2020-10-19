@@ -4,10 +4,10 @@
  */
 
 var plan = require("flightplan");
-var config = require("./config");
+var config = require("../config/config");
 
 // create website on remote server
-plan.remote("remote-setup-website", function (remote) {
+plan.remote("create-website", function (remote) {
   remote.hostname();
   var $ = remote.runtime;
 
@@ -17,17 +17,17 @@ plan.remote("remote-setup-website", function (remote) {
   var git_repo_root = www_root + "/repo/";
 
   var apache2_conf_file = config.apache2_conf_dir + $.domain_name + ".conf";
-  var virtual_host_str = "<VirtualHost *:" + config.port_number + ">";
+  var virtual_host_str = "<VirtualHost *:" + config.http_port_number + ">";
   var server_admin_str = "ServerAdmin me@aravinth.info";
   var server_name_str = "ServerName " + $.domain_name;
   var server_alias_str = "ServerAlias www." + $.domain_name;
   var document_root_str = "DocumentRoot " + doc_root;
   var error_log_str =
-    "ErrorLog " + config.webhook_dir + "log/" + $.domain_name + ".error.log";
+    "ErrorLog " + config.aracloud_root + "logs/" + $.domain_name + ".error.log";
   var custom_log_str =
     "CustomLog " +
-    config.webhook_dir +
-    "log/" +
+    config.aracloud_root +
+    "logs/" +
     $.domain_name +
     ".access.log combined";
   var virtual_host_end_str = "</VirtualHost>";
@@ -66,15 +66,15 @@ plan.remote("remote-setup-website", function (remote) {
 });
 
 // Transfer necessary files from local to remote
-plan.local("remote-setup-website", function (local) {
+plan.local("create-website", function (local) {
   local.hostname();
 
   //  Update flightplan deployment scripts
-  local.transfer("./", config.webhook_dir);
+  local.transfer("./", config.aracloud_root);
 });
 
 // start necessary services
-plan.remote("remote-setup-website", function (remote) {
+plan.remote("create-website", function (remote) {
   remote.hostname();
   var $ = remote.runtime;
 
@@ -82,9 +82,9 @@ plan.remote("remote-setup-website", function (remote) {
   var www_user = $.username + ":" + $.username;
 
   // setup files
-  remote.chmod("+x " + config.webhook_dir + "deploy.sh");
-  remote.chown("-R " + www_user + " " + config.webhook_dir);
-  remote.chown("-R " + www_user + " " + config.webhook_dir + "*");
+  remote.chmod("+x " + config.aracloud_root + "deploy.sh");
+  remote.chown("-R " + www_user + " " + config.aracloud_root);
+  remote.chown("-R " + www_user + " " + config.aracloud_root + "*");
 
   //reload webhook
   remote.exec("supervisorctl reload");
