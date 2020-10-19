@@ -13,6 +13,7 @@ require("./src/create-website.js");
 require("./src/deploy-website.js");
 require("./src/create-redirect.js");
 require("./src/create-app.js");
+require("./src/sync-server.js");
 
 // hosts
 require("./hosts/host-aracreate-com.js");
