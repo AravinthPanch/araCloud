@@ -23,6 +23,9 @@ An automated deployment system for all websites and apps on the private virtual 
 - Add the domain to HTTPS
   - sudo certbot --expand -d aravinth.info,arabot.aravinth.info,files.aravinth.info,timeline.aravinth.info,www.aravinth.info,meet.aravinth.info,cal.aravinth.info
 
+## To deploy website locally on server
+- `fly deploy-website:hardwarestartups.berlin`
+
 ## To sync araCloud flightplan scripts with server
 - `fly sync-server:aracloud`
 
