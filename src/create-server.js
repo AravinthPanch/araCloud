@@ -21,10 +21,10 @@ plan.remote("create-server", function (remote) {
   remote.exec("npm install -g n");
   remote.exec("n " + config.node_version);
 
-  //install flightplan
-  remote.exec(
-    "export USER=root && npm install -g flightplan@" + config.flightplan_version
-  );
+  //install flightplan locally
+  remote.with("cd " + config.aracloud_root, () => {
+    remote.exec("export USER=root && npm install flightplan@" + config.flightplan_version);
+  });
 });
 
 // transfer necessary files from local host

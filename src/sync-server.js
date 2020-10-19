@@ -13,6 +13,11 @@ plan.remote("sync-server", function (remote) {
   //set up aracloud root directory
   remote.rm("-rf " + config.aracloud_root);
   remote.mkdir("-p " + config.aracloud_root + "logs/");
+
+  //install flightplan locally
+  remote.with("cd " + config.aracloud_root, () => {
+    remote.exec("export USER=root && npm install flightplan@" + config.flightplan_version);
+  });
 });
 
 // transfer necessary files from local host
