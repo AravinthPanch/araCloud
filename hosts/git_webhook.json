@@ -78,5 +78,13 @@
       "source": "string",
       "name": "talents.aravinth.info"
     }]
+  },
+  {
+    "id": "jobs.aravinth.info",
+    "execute-command": "/var/www/aracloud/src/deploy-website.sh",
+    "pass-arguments-to-command": [{
+      "source": "string",
+      "name": "jobs.aravinth.info"
+    }]
   }
 ]

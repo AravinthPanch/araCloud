@@ -104,3 +104,16 @@ plan.target("talents.aravinth.info", {
   git_branch: "master",
   git_src_dir: "",
 });
+
+plan.target("jobs.aravinth.info", {
+  host: config.host,
+  username: config.username,
+  privateKey: config.privateKey,
+  agent: config.agent,
+
+  domain_name: "jobs.aravinth.info",
+  domain_name_reversed: "info.aravinth.jobs",
+  git_repo: "git@github.com:AravinthPanch/jobs.aravinth.info.git",
+  git_branch: "main",
+  git_src_dir: "",
+});
