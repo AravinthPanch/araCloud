@@ -86,5 +86,13 @@
       "source": "string",
       "name": "jobs.aravinth.info"
     }]
+  },
+  {
+    "id": "trashfortrade.com",
+    "execute-command": "/var/www/aracloud/src/deploy-website.sh",
+    "pass-arguments-to-command": [{
+      "source": "string",
+      "name": "trashfortrade.com"
+    }]
   }
 ]
