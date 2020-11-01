@@ -94,4 +94,7 @@ plan.remote("create-app", function (remote) {
 
   // setup files
   remote.exec(`cp -r ${secrets_dir} ${app_secrets_dir}`);
+
+  //reload webhook
+  remote.exec("supervisorctl reload");
 });
