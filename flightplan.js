@@ -14,6 +14,7 @@ require("./src/deploy-website.js");
 require("./src/create-redirect.js");
 require("./src/create-app.js");
 require("./src/sync-server.js");
+require("./src/deploy-app.js");
 
 // hosts
 require("./hosts/host-aracreate-com.js");
