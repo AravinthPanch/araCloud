@@ -44,9 +44,9 @@ plan.remote("create-app", function (remote) {
   remote.cp("-r " + app_repo_dir + $.git_src_dir + "* " + app_dir);
 
   // place cronjob
-  remote.cp(app_config_dir + app_cron_script + " " + config.cron_dir);
+  remote.cp(app_config_dir + app_cron_script + " " + config.cron_dir + "aracloud-" + app_cron_script);
   remote.with("cd " + config.cron_dir, function () {
-    remote.exec("crontab " + app_cron_script);
+    remote.sudo("cat ./aracloud-* | crontab -u root -");
   });
 
   // install depencies

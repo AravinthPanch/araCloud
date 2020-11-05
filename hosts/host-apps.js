@@ -2,7 +2,7 @@ var plan = require("flightplan");
 var config = require("../config/config");
 
 // APPS
-plan.target("app-arametrics", [
+plan.target("arametrics-clockify-google", [
   {
     host: config.host,
     username: config.username,
@@ -13,10 +13,12 @@ plan.target("app-arametrics", [
     git_repo: "git@github.com:AravinthPanch/araMetrics.git",
     git_branch: "master",
     git_src_dir: "arametrics-clockify-google/",
-    local_src_dir:
-      "/Users/aravinth/local-workspace/-araCreate-git-repos/araMetrics/arametrics-clockify-google/",
-    local_secrets_dir: "secrets/",
-  },
+    local_src_dir: "/Users/aravinth/local-workspace/-araCreate-git-repos/araMetrics/arametrics-clockify-google/",
+    local_secrets_dir: "secrets/"
+  }
+]);
+
+plan.target("arametrics-test-app", [
   {
     host: config.host,
     username: config.username,
@@ -27,8 +29,7 @@ plan.target("app-arametrics", [
     git_repo: "git@github.com:AravinthPanch/araMetrics.git",
     git_branch: "master",
     git_src_dir: "arametrics-test-app/",
-    local_src_dir:
-      "/Users/aravinth/local-workspace/-araCreate-git-repos/araMetrics/arametrics-test-app/",
-    local_secrets_dir: "secrets/",
-  },
+    local_src_dir: "/Users/aravinth/local-workspace/-araCreate-git-repos/araMetrics/arametrics-test-app/",
+    local_secrets_dir: "secrets/"
+  }
 ]);
