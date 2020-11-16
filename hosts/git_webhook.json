@@ -120,12 +120,12 @@
     ]
   },
   {
-    "id": "app-arametrics",
+    "id": "arametrics-clockify-google",
     "execute-command": "/var/www/aracloud/src/deploy-app.sh",
     "pass-arguments-to-command": [
       {
         "source": "string",
-        "name": "app-arametrics"
+        "name": "arametrics-clockify-google"
       }
     ]
   },
