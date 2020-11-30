@@ -83,3 +83,14 @@ plan.target("visualmakers.dreamspace.academy", {
   git_branch: "main",
   git_src_dir: ""
 });
+
+plan.target("git.dreamspace.academy", {
+  host: config.host,
+  username: config.username,
+  privateKey: config.privateKey,
+  agent: config.agent,
+
+  domain_name: "git.dreamspace.academy",
+  domain_name_reversed: "academy.dreamspace.git",
+  redirect_url: "https://github.com/dreamspace-academy",
+});

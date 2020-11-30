@@ -45,10 +45,11 @@ An automated deployment system for all websites and apps on the private virtual 
 - `fly create-app:arametrics-clockify-google`
 - `fly create-website:trashfortrade.com`
 - `fly create-website:oceanbio.me`
+- `fly create-redirect:git.dreamspace.academy`
 
 ### Created ssl certificates
 - sudo certbot --expand -d aracreate.com
 - sudo certbot --expand -d aravinth.info,www.aravinth.info,arabot.aravinth.info,cal.aravinth.info,files.aravinth.info,meet.aravinth.info,projects.aravinth.info,talents.aravinth.info,jobs.aravinth.info
-- sudo certbot --expand -d dreamspace.academy,www.dreamspace.academy,corona.dreamspace.academy,dev.dreamspace.academy,team.dreamspace.academy,terrace.dreamspace.academy,visualmakers.dreamspace.academy
+- sudo certbot --expand -d dreamspace.academy,www.dreamspace.academy,corona.dreamspace.academy,dev.dreamspace.academy,team.dreamspace.academy,terrace.dreamspace.academy,visualmakers.dreamspace.academy,git.dreamspace.academy
 - sudo certbot --expand -d trashfortrade.com,dev.trashfortrade.com
 - sudo certbot --expand -d oceanbio.me
