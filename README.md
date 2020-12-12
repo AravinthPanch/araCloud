@@ -46,6 +46,7 @@ An automated deployment system for all websites and apps on the private virtual 
 - `fly create-website:trashfortrade.com`
 - `fly create-website:oceanbio.me`
 - `fly create-redirect:git.dreamspace.academy`
+- `fly create-redirect:storydeck.dreamspace.academy`
 
 ### Created ssl certificates
 - sudo certbot --expand -d aracreate.com

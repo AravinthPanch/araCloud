@@ -94,3 +94,14 @@ plan.target("git.dreamspace.academy", {
   domain_name_reversed: "academy.dreamspace.git",
   redirect_url: "https://github.com/dreamspace-academy",
 });
+
+plan.target("storydeck.dreamspace.academy", {
+  host: config.host,
+  username: config.username,
+  privateKey: config.privateKey,
+  agent: config.agent,
+
+  domain_name: "storydeck.dreamspace.academy",
+  domain_name_reversed: "academy.dreamspace.storydeck",
+  redirect_url: "https://files.aravinth.info/decks/dreamspace-academy-story-deck.pdf",
+});
