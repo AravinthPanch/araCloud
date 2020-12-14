@@ -105,3 +105,14 @@ plan.target("storydeck.dreamspace.academy", {
   domain_name_reversed: "academy.dreamspace.storydeck",
   redirect_url: "https://files.aravinth.info/decks/dreamspace-academy-story-deck.pdf",
 });
+
+plan.target("bible.dreamspace.academy", {
+  host: config.host,
+  username: config.username,
+  privateKey: config.privateKey,
+  agent: config.agent,
+
+  domain_name: "bible.dreamspace.academy",
+  domain_name_reversed: "academy.dreamspace.bible",
+  redirect_url: "https://docs.google.com/document/d/1ssT6-utMZVMvUd6rb9tcXYpOj0SuRgZGDnafgJqTqKk",
+});
