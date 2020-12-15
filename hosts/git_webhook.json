@@ -138,5 +138,15 @@
         "name": "oceanbio.me"
       }
     ]
+  },
+  {
+    "id": "make.dreamspace.academy",
+    "execute-command": "/var/www/aracloud/src/deploy-website.sh",
+    "pass-arguments-to-command": [
+      {
+        "source": "string",
+        "name": "make.dreamspace.academy"
+      }
+    ]
   }
 ]

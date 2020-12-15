@@ -116,3 +116,16 @@ plan.target("bible.dreamspace.academy", {
   domain_name_reversed: "academy.dreamspace.bible",
   redirect_url: "https://docs.google.com/document/d/1ssT6-utMZVMvUd6rb9tcXYpOj0SuRgZGDnafgJqTqKk",
 });
+
+plan.target("make.dreamspace.academy", {
+  host: config.host,
+  username: config.username,
+  privateKey: config.privateKey,
+  agent: config.agent,
+
+  domain_name: "make.dreamspace.academy",
+  domain_name_reversed: "academy.dreamspace.make",
+  git_repo: "git@github.com:dreamspace-academy/dreamspace-maker-education.git",
+  git_branch: "main",
+  git_src_dir: "software-lab/html-css/"
+});
