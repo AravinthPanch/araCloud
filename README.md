@@ -41,7 +41,7 @@ An automated deployment system for all websites and apps on the private virtual 
 - `fly create-website:hardwarestartups.berlin`
 - `fly create-website:macsxperts.com`
 - `fly create-website:aracreate.com`
-- `fly create-redirect:cal.aravinth.info`
+- `fly create-website:cal.aravinth.info`
 - `fly create-app:arametrics-clockify-google`
 - `fly create-website:trashfortrade.com`
 - `fly create-website:oceanbio.me`

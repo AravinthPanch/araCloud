@@ -66,6 +66,18 @@ plan.target("aravinth.info", [
     git_branch: "master",
     git_src_dir: "src/projects/",
   },
+  {
+    host: config.host,
+    username: config.username,
+    privateKey: config.privateKey,
+    agent: config.agent,
+
+    domain_name: "cal.aravinth.info",
+    domain_name_reversed: "info.aravinth.cal",
+    git_repo: "git@github.com:AravinthPanch/aravinth.info.git",
+    git_branch: "master",
+    git_src_dir: "src/cal/",
+  }
 ]);
 
 plan.target("files.aravinth.info", {
@@ -79,17 +91,6 @@ plan.target("files.aravinth.info", {
   git_repo: "git@github.com:AravinthPanch/files.aravinth.info.git",
   git_branch: "master",
   git_src_dir: "",
-});
-
-plan.target("cal.aravinth.info", {
-  host: config.host,
-  username: config.username,
-  privateKey: config.privateKey,
-  agent: config.agent,
-
-  domain_name: "cal.aravinth.info",
-  domain_name_reversed: "info.aravinth.cal",
-  redirect_url: "https://calendly.com/ara-panch",
 });
 
 plan.target("talents.aravinth.info", {
