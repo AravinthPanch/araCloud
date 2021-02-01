@@ -20,6 +20,7 @@ require("./src/deploy-app.js");
 require("./hosts/host-aracreate-com.js");
 require("./hosts/host-aravinth-info.js");
 require("./hosts/host-dreamspace-academy.js");
+require("./hosts/host-oceanbio-me.js");
 require("./hosts/host-others.js");
 require("./hosts/host-apps.js");
 

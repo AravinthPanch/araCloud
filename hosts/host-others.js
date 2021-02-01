@@ -66,22 +66,3 @@ plan.target("trashfortrade.com", [
     git_src_dir: ""
   }
 ]);
-
-
-///////////////////////////
-/// WWW.OCEANBIO.ME ////
-///////////////////////////
-plan.target("oceanbio.me", [
-  {
-    host: config.host,
-    username: config.username,
-    privateKey: config.privateKey,
-    agent: config.agent,
-
-    domain_name: "oceanbio.me",
-    domain_name_reversed: "me.oceanbio",
-    git_repo: "git@github.com:dreamspace-academy/oceanbio.me.git",
-    git_branch: "main",
-    git_src_dir: ""
-  }
-]);
