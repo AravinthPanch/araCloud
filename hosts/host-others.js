@@ -36,33 +36,3 @@ plan.target("hardwarestartups.berlin", [
     git_src_dir: ""
   }
 ]);
-
-////////////////////////////////////
-/// WWW.TRASHFORTRADE.COM ////
-////////////////////////////////////
-plan.target("trashfortrade.com", [
-  {
-    host: config.host,
-    username: config.username,
-    privateKey: config.privateKey,
-    agent: config.agent,
-
-    domain_name: "trashfortrade.com",
-    domain_name_reversed: "com.trashfortrade",
-    git_repo: "git@github.com:dreamspace-academy/trashfortrade.com.git",
-    git_branch: "main",
-    git_src_dir: ""
-  },
-  {
-    host: config.host,
-    username: config.username,
-    privateKey: config.privateKey,
-    agent: config.agent,
-
-    domain_name: "dev.trashfortrade.com",
-    domain_name_reversed: "com.trashfortrade.dev",
-    git_repo: "git@github.com:dreamspace-academy/trashfortrade.com.git",
-    git_branch: "dev",
-    git_src_dir: ""
-  }
-]);

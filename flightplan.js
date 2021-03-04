@@ -23,6 +23,7 @@ require("./hosts/host-dreamspace-academy.js");
 require("./hosts/host-oceanbio-me.js");
 require("./hosts/host-others.js");
 require("./hosts/host-apps.js");
+require("./hosts/host-jayanthan.js");
 
 
 // server

@@ -125,5 +125,21 @@
       "source": "string",
       "name": "make.dreamspace.academy"
     }]
+  },
+  {
+    "id": "jayanthan.info",
+    "execute-command": "/var/www/aracloud/src/deploy-website.sh",
+    "pass-arguments-to-command": [{
+      "source": "string",
+      "name": "jayanthan.info"
+    }]
+  },
+  {
+    "id": "emd-labs.com",
+    "execute-command": "/var/www/aracloud/src/deploy-website.sh",
+    "pass-arguments-to-command": [{
+      "source": "string",
+      "name": "emd-labs.com"
+    }]
   }
 ]
