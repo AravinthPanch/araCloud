@@ -48,6 +48,7 @@ An automated deployment system for all websites and apps on the private virtual 
 - `fly create-website:shanjeevan.oceanbio.me`
 - `fly create-redirect:git.dreamspace.academy`
 - `fly create-redirect:storydeck.dreamspace.academy`
+- `fly create-redirect:supportdeck.dreamspace.academy`
 - `fly create-redirect:bible.dreamspace.academy`
 - `fly create-website:make.dreamspace.academy`
 

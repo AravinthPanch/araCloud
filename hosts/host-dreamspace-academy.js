@@ -129,3 +129,14 @@ plan.target("make.dreamspace.academy", {
   git_branch: "main",
   git_src_dir: "software-lab/html-css/"
 });
+
+plan.target("supportdeck.dreamspace.academy", {
+  host: config.host,
+  username: config.username,
+  privateKey: config.privateKey,
+  agent: config.agent,
+
+  domain_name: "supportdeck.dreamspace.academy",
+  domain_name_reversed: "academy.dreamspace.supportdeck",
+  redirect_url: "https://files.aravinth.info/decks/dreamspace-academy-support-deck.pdf",
+});
