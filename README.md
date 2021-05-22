@@ -53,6 +53,7 @@ An automated deployment system for all websites and apps on the private virtual 
 - `fly create-website:make.dreamspace.academy`
 - `fly create-website:jayanthan.info`
 - `fly create-website:emd-labs.com`
+- `fly create-redirect:support.dreamspace.academy`
 
 ### Created ssl certificates
 - sudo certbot --expand -d aracreate.com

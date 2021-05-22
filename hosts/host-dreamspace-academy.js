@@ -140,3 +140,14 @@ plan.target("supportdeck.dreamspace.academy", {
   domain_name_reversed: "academy.dreamspace.supportdeck",
   redirect_url: "https://files.aravinth.info/decks/dreamspace-academy-support-deck.pdf",
 });
+
+plan.target("support.dreamspace.academy", {
+  host: config.host,
+  username: config.username,
+  privateKey: config.privateKey,
+  agent: config.agent,
+
+  domain_name: "support.dreamspace.academy",
+  domain_name_reversed: "academy.dreamspace.support",
+  redirect_url: "https://dreamspace.academy/pages/7-1-support.php",
+});
