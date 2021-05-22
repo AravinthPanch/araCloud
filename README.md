@@ -54,6 +54,7 @@ An automated deployment system for all websites and apps on the private virtual 
 - `fly create-website:jayanthan.info`
 - `fly create-website:emd-labs.com`
 - `fly create-redirect:support.dreamspace.academy`
+- `fly create-website:dreamspace.foundation`
 
 ### Created ssl certificates
 - sudo certbot --expand -d aracreate.com
@@ -61,3 +62,4 @@ An automated deployment system for all websites and apps on the private virtual 
 - sudo certbot --expand -d dreamspace.academy,www.dreamspace.academy,corona.dreamspace.academy,dev.dreamspace.academy,team.dreamspace.academy,terrace.dreamspace.academy,visualmakers.dreamspace.academy,git.dreamspace.academy,make.dreamspace.academy
 - sudo certbot --expand -d trashfortrade.com,dev.trashfortrade.com,jayanthan.info,dev.jayanthan.info,emd-labs.com,dev.emd-labs.com
 - sudo certbot --expand -d oceanbio.me,dev.oceanbio.me,shanjeevan.oceanbio.me,dev.shanjeevan.oceanbio.me
+- sudo certbot --expand -d dreamspace.foundation,dev.dreamspace.foundation

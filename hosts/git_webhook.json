@@ -141,5 +141,13 @@
       "source": "string",
       "name": "emd-labs.com"
     }]
+  },
+  {
+    "id": "dreamspace.foundation",
+    "execute-command": "/var/www/aracloud/src/deploy-website.sh",
+    "pass-arguments-to-command": [{
+      "source": "payload",
+      "name": "repository.name"
+    }]
   }
 ]

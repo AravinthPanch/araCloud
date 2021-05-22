@@ -151,3 +151,30 @@ plan.target("support.dreamspace.academy", {
   domain_name_reversed: "academy.dreamspace.support",
   redirect_url: "https://dreamspace.academy/pages/7-1-support.php",
 });
+
+plan.target("dreamspace.foundation", [
+  {
+    host: config.host,
+    username: config.username,
+    privateKey: config.privateKey,
+    agent: config.agent,
+
+    domain_name: "dreamspace.foundation",
+    domain_name_reversed: "foundation.dreamspace",
+    git_repo: "git@github.com:dreamspace-academy/dreamspace.foundation.git",
+    git_branch: "master",
+    git_src_dir: ""
+  },
+  {
+    host: config.host,
+    username: config.username,
+    privateKey: config.privateKey,
+    agent: config.agent,
+
+    domain_name: "dev.dreamspace.foundation",
+    domain_name_reversed: "foundation.dreamspace.dev",
+    git_repo: "git@github.com:dreamspace-academy/dreamspace.foundation.git",
+    git_branch: "dev",
+    git_src_dir: ""
+  }
+]);
