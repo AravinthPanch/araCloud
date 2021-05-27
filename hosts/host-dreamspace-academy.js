@@ -66,7 +66,7 @@ plan.target("corona.dreamspace.academy", {
 
   domain_name: "corona.dreamspace.academy",
   domain_name_reversed: "academy.dreamspace.corona",
-  git_repo: "git@github.com:Viththiyakaran/coronabot.git",
+  git_repo: "git@github.com:dreamspace-academy/dreamspace-coronabot.git",
   git_branch: "master",
   git_src_dir: ""
 });
