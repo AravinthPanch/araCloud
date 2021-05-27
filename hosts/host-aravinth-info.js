@@ -115,6 +115,6 @@ plan.target("jobs.aravinth.info", {
   domain_name: "jobs.aravinth.info",
   domain_name_reversed: "info.aravinth.jobs",
   git_repo: "git@github.com:AravinthPanch/jobs.aravinth.info.git",
-  git_branch: "main",
+  git_branch: "master",
   git_src_dir: "",
 });

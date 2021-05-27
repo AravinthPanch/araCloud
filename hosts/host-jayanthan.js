@@ -14,7 +14,7 @@ plan.target("trashfortrade.com", [
     domain_name: "trashfortrade.com",
     domain_name_reversed: "com.trashfortrade",
     git_repo: "git@github.com:dreamspace-academy/trashfortrade.com.git",
-    git_branch: "main",
+    git_branch: "master",
     git_src_dir: ""
   },
   {
@@ -44,7 +44,7 @@ plan.target("jayanthan.info", [
     domain_name: "jayanthan.info",
     domain_name_reversed: "info.jayanthan",
     git_repo: "git@github.com:dreamspace-academy/jayanthan.info.git",
-    git_branch: "main",
+    git_branch: "master",
     git_src_dir: ""
   },
   {
@@ -74,7 +74,7 @@ plan.target("emd-labs.com", [
     domain_name: "emd-labs.com",
     domain_name_reversed: "com.emd-labs",
     git_repo: "git@github.com:dreamspace-academy/emd-labs.com.git",
-    git_branch: "main",
+    git_branch: "master",
     git_src_dir: ""
   },
   {

@@ -80,7 +80,7 @@ plan.target("visualmakers.dreamspace.academy", {
   domain_name: "visualmakers.dreamspace.academy",
   domain_name_reversed: "academy.dreamspace.visualmakers",
   git_repo: "git@github.com:dreamspace-academy/visualmakers.dreamspace.academy.git",
-  git_branch: "main",
+  git_branch: "master",
   git_src_dir: ""
 });
 
@@ -126,7 +126,7 @@ plan.target("make.dreamspace.academy", {
   domain_name: "make.dreamspace.academy",
   domain_name_reversed: "academy.dreamspace.make",
   git_repo: "git@github.com:dreamspace-academy/dreamspace-maker-education.git",
-  git_branch: "main",
+  git_branch: "master",
   git_src_dir: "software-lab/html-css/"
 });
 

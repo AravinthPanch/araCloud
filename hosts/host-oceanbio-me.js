@@ -14,7 +14,7 @@ plan.target("oceanbio.me", [
     domain_name: "oceanbio.me",
     domain_name_reversed: "me.oceanbio",
     git_repo: "git@github.com:dreamspace-academy/oceanbio.me.git",
-    git_branch: "main",
+    git_branch: "master",
     git_src_dir: ""
   },
   {
@@ -41,7 +41,7 @@ plan.target("shanjeevan.oceanbio.me", [
     domain_name: "shanjeevan.oceanbio.me",
     domain_name_reversed: "me.oceanbio.shanjeevan",
     git_repo: "git@github.com:dreamspace-academy/shanjeevan.oceanbio.me.git",
-    git_branch: "main",
+    git_branch: "master",
     git_src_dir: ""
   },
   {
