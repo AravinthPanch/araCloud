@@ -157,5 +157,13 @@
       "source": "payload",
       "name": "repository.name"
     }]
+  },
+  {
+    "id": "cris-silva.com",
+    "execute-command": "/var/www/aracloud/src/deploy-website.sh",
+    "pass-arguments-to-command": [{
+      "source": "payload",
+      "name": "repository.name"
+    }]
   }
 ]
