@@ -24,6 +24,7 @@ require("./hosts/host-oceanbio-me.js");
 require("./hosts/host-others.js");
 require("./hosts/host-apps.js");
 require("./hosts/host-jayanthan.js");
+require("./hosts/host-cris.js");
 
 
 // server

@@ -149,5 +149,13 @@
       "source": "payload",
       "name": "repository.name"
     }]
+  },
+  {
+    "id": "benzymeventures.org",
+    "execute-command": "/var/www/aracloud/src/deploy-website.sh",
+    "pass-arguments-to-command": [{
+      "source": "payload",
+      "name": "repository.name"
+    }]
   }
 ]
