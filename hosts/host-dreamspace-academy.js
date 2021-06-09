@@ -152,13 +152,13 @@ plan.target("support.dreamspace.academy", {
   redirect_url: "https://dreamspace.academy/pages/7-1-support.php",
 });
 
-plan.target("fungi.dreamspace.academy", {
+plan.target("dreamfungi.dreamspace.academy", {
   host: config.host,
   username: config.username,
   privateKey: config.privateKey,
   agent: config.agent,
 
-  domain_name: "fungi.dreamspace.academy",
-  domain_name_reversed: "academy.dreamspace.fungi",
-  redirect_url: "https://dev.dreamspace.academy/files/fungi/",
+  domain_name: "dreamfungi.dreamspace.academy",
+  domain_name_reversed: "academy.dreamspace.dreamfungi",
+  redirect_url: "https://opencollective.com/dreamfungi",
 });

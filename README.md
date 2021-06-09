@@ -55,14 +55,14 @@ An automated deployment system for all websites and apps on the private virtual 
 - `fly create-website:emd-labs.com`
 - `fly create-redirect:support.dreamspace.academy`
 - `fly create-website:dreamspace.foundation`
-- `fly create-redirect:fungi.dreamspace.academy`
+- `fly create-redirect:dreamfungi.dreamspace.academy`
 - `fly create-website:benzymeventures.org`
 - `fly create-website:cris-silva.com`
 
 ### Created ssl certificates
 - sudo certbot --expand -d aracreate.com
 - sudo certbot --expand -d aravinth.info,www.aravinth.info,arabot.aravinth.info,cal.aravinth.info,files.aravinth.info,meet.aravinth.info,projects.aravinth.info,talents.aravinth.info,jobs.aravinth.info
-- sudo certbot --expand -d dreamspace.academy,www.dreamspace.academy,corona.dreamspace.academy,dev.dreamspace.academy,team.dreamspace.academy,terrace.dreamspace.academy,visualmakers.dreamspace.academy,git.dreamspace.academy,make.dreamspace.academy
+- sudo certbot --expand -d dreamspace.academy,www.dreamspace.academy,corona.dreamspace.academy,dev.dreamspace.academy,team.dreamspace.academy,git.dreamspace.academy,make.dreamspace.academy
 - sudo certbot --expand -d trashfortrade.com,dev.trashfortrade.com,jayanthan.info,dev.jayanthan.info,emd-labs.com,dev.emd-labs.com
 - sudo certbot --expand -d oceanbio.me,dev.oceanbio.me,shanjeevan.oceanbio.me,dev.shanjeevan.oceanbio.me
 - sudo certbot --expand -d dreamspace.foundation,dev.dreamspace.foundation
