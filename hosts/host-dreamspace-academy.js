@@ -160,5 +160,5 @@ plan.target("dreamfungi.dreamspace.academy", {
 
   domain_name: "dreamfungi.dreamspace.academy",
   domain_name_reversed: "academy.dreamspace.dreamfungi",
-  redirect_url: "https://opencollective.com/dreamfungi",
+  redirect_url: "https://dev.dreamspace.academy/files/dreamfungi/",
 });
