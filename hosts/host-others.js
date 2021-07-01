@@ -63,3 +63,22 @@ plan.target("dreamspace.foundation", [
     git_src_dir: ""
   }
 ]);
+
+////////////////////////////////////
+/// WWW.ZEROSEC.IN ////
+////////////////////////////////////
+
+plan.target("zerosec.in", [
+  {
+    host: config.host,
+    username: config.username,
+    privateKey: config.privateKey,
+    agent: config.agent,
+
+    domain_name: "dev.zerosec.in",
+    domain_name_reversed: "in.zerosec.dev",
+    git_repo: "git@github.com:dreamspace-academy/zerosec.in.git",
+    git_branch: "dev",
+    git_src_dir: ""
+  }
+]);

@@ -58,6 +58,7 @@ An automated deployment system for all websites and apps on the private virtual 
 - `fly create-redirect:dreamfungi.dreamspace.academy`
 - `fly create-website:benzymeventures.org`
 - `fly create-website:cris-silva.com`
+- `fly create-website:zerosec.in`
 
 ### Created ssl certificates
 - sudo certbot --expand -d aracreate.com
